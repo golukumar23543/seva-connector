@@ -1,0 +1,966 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-01",
+      "email": "admin@sevaconnect.in",
+      "name": "Mr. Golu Prajapati (Admin)",
+      "phone": "+91 8709107808",
+      "role": "ADMIN",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-01T08:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "e8e576338af913b04842ae70739a54a7833c84afac2d7e864f62a18ff04e4659d3dad234b27558fe1b5ed78a512bbe3e577620371a1c7f5ed80f8ab9f7da42fe",
+      "salt": "8a84ceb471e32c8263133c66f78aa016"
+    },
+    {
+      "id": "usr-admin-02",
+      "email": "coadmin@sevaconnect.in",
+      "name": "Alok Prajapati (Co-Admin)",
+      "phone": "+91 8409021577",
+      "role": "ADMIN",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-01T08:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "e8e576338af913b04842ae70739a54a7833c84afac2d7e864f62a18ff04e4659d3dad234b27558fe1b5ed78a512bbe3e577620371a1c7f5ed80f8ab9f7da42fe",
+      "salt": "8a84ceb471e32c8263133c66f78aa016"
+    },
+    {
+      "id": "usr-cust-01",
+      "email": "rahul.customer@gmail.com",
+      "name": "Rahul Verma",
+      "phone": "+91 98290 22222",
+      "role": "CUSTOMER",
+      "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-10T10:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "dc09de06a0ef5a06b2517eab559773b9120b36b4c718d232d2b07fedb1e19d0cb8b680189577a3e42fd70c77bcc6692db2e822e4fe0e717504ff11e003fef5d0",
+      "salt": "0b1216e07a42f57548c6823ed685befc",
+      "registrationMethod": "EMAIL_PHONE",
+      "verificationStatus": "Admin Code Verified",
+      "firstName": "Rahul",
+      "lastName": "Verma",
+      "dob": "1996-05-20",
+      "address": {
+        "houseFlat": "Flat 302, Maurya Vihar",
+        "streetArea": "Boring Road",
+        "city": "Patna",
+        "state": "Bihar",
+        "pincode": "800001"
+      },
+      "lastLoginAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "usr-prov-01",
+      "email": "rajesh.electrician@sevaconnect.in",
+      "name": "Rajesh Sharma",
+      "phone": "+91 98290 33001",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-02",
+      "email": "amit.plumber@sevaconnect.in",
+      "name": "Amit Kumar Saini",
+      "phone": "+91 98290 33002",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-03",
+      "email": "vikram.ac@sevaconnect.in",
+      "name": "Vikram Singh Shekhawat",
+      "phone": "+91 98290 33003",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-04",
+      "email": "suresh.ro@sevaconnect.in",
+      "name": "Suresh Verma",
+      "phone": "+91 98290 33004",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-05",
+      "email": "rohit.computer@sevaconnect.in",
+      "name": "Rohit Mehra Tech",
+      "phone": "+91 98290 33005",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-06",
+      "email": "neha.cleaner@sevaconnect.in",
+      "name": "Neha Deep Cleaning Pros",
+      "phone": "+91 98290 33006",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-prov-07",
+      "email": "pawan.painter@sevaconnect.in",
+      "name": "Pawan Kumar Painters",
+      "phone": "+91 98290 33007",
+      "role": "PROVIDER",
+      "avatarUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-15T09:00:00.000Z",
+      "isActive": true,
+      "passwordHash": "99239da8591f5e3cf770b7457f04f30455c5c1909d0a5b5a5f4b10eaa08dcbdb44dc335ab76cfa68fdf16e2fe81002f6ad11c795b23d159c1153dcb32c725b0c",
+      "salt": "8f7fcc034419ad29f10b57e25db75ec7"
+    },
+    {
+      "id": "usr-cust-02",
+      "email": "pooja.sharma.tech@gmail.com",
+      "name": "Pooja Sharma",
+      "firstName": "Pooja",
+      "lastName": "Sharma",
+      "dob": "1998-11-23",
+      "phone": "+91 98290 55443",
+      "altPhone": "+91 98290 55440",
+      "address": {
+        "houseFlat": "Villa 12, Gulab Vatika",
+        "streetArea": "Gopalpura Bypass",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "pincode": "302018"
+      },
+      "role": "CUSTOMER",
+      "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-02-04T12:30:00.000Z",
+      "isActive": true,
+      "registrationMethod": "GOOGLE",
+      "verificationStatus": "Google Identity Verified",
+      "googleId": "g-sub-1049285028492019",
+      "lastLoginAt": "2026-09-20T09:15:00.000Z",
+      "passwordHash": "4ec82b0f879bfbd6a712600793a553d0b3cee31da3fb6901fff228cf39e8989fcc5210218bf03b26833df4fe89b0aba62771276e3eeb192c3c5f1bf9721ea59f",
+      "salt": "1a0e22bd67f685abadffcaa362eb5beb"
+    }
+  ],
+  "customerProfiles": [
+    {
+      "id": "cp-01",
+      "userId": "usr-cust-01",
+      "defaultAddress": "Flat 402, Royal Palms Residency, VT Road",
+      "city": "Jaipur",
+      "area": "Mansarovar",
+      "pincode": "302020",
+      "firstName": "Rahul",
+      "lastName": "Verma",
+      "dob": "1996-05-20",
+      "phone": "+91 98290 22222",
+      "address": {
+        "houseFlat": "Flat 402, Royal Palms Residency",
+        "streetArea": "VT Road, Mansarovar",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "pincode": "302020"
+      },
+      "registrationMethod": "EMAIL_PHONE",
+      "verificationStatus": "Admin Code Verified",
+      "lastLoginAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "cp-02",
+      "userId": "usr-cust-02",
+      "firstName": "Pooja",
+      "lastName": "Sharma",
+      "dob": "1998-11-23",
+      "phone": "+91 98290 55443",
+      "altPhone": "+91 98290 55440",
+      "address": {
+        "houseFlat": "Villa 12, Gulab Vatika",
+        "streetArea": "Gopalpura Bypass",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "pincode": "302018"
+      },
+      "defaultAddress": "Villa 12, Gulab Vatika, Gopalpura Bypass, Jaipur, Rajasthan - 302018",
+      "city": "Jaipur",
+      "area": "Gopalpura Bypass",
+      "pincode": "302018",
+      "registrationMethod": "GOOGLE",
+      "verificationStatus": "Google Identity Verified",
+      "googleId": "g-sub-1049285028492019",
+      "lastLoginAt": "2026-09-20T09:15:00.000Z"
+    }
+  ],
+  "providerProfiles": [
+    {
+      "id": "pp-usr-prov-01",
+      "userId": "usr-prov-01",
+      "serviceCategory": "Electrician",
+      "services": [
+        "Wiring & Rewiring",
+        "Switchboard Repair",
+        "MCB & Inverter Setup",
+        "Fan Installation"
+      ],
+      "experienceYears": 9,
+      "bio": "Government certified licensed technician with 9+ years of on-field expertise in residential and commercial electrical systems across Jaipur.",
+      "serviceAreas": [
+        "Mansarovar",
+        "Malviya Nagar",
+        "Vaishali Nagar",
+        "Civil Lines"
+      ],
+      "pricingStartingAt": 299,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.9,
+      "reviewCount": 142,
+      "completedJobsCount": 168,
+      "portfolioPhotos": [
+        "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&auto=format&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "pp-usr-prov-02",
+      "userId": "usr-prov-02",
+      "serviceCategory": "Plumber",
+      "services": [
+        "Tap & Pipe Leakage",
+        "Water Tank Cleaning",
+        "Bathroom Fitting",
+        "Water Motor Repair"
+      ],
+      "experienceYears": 7,
+      "bio": "Expert sanitary & plumbing technician. Specialized in emergency leak repairs, CPVC piping, and concealed bathroom installations with 1-month warranty.",
+      "serviceAreas": [
+        "Malviya Nagar",
+        "C-Scheme",
+        "Raja Park",
+        "Mansarovar"
+      ],
+      "pricingStartingAt": 249,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.8,
+      "reviewCount": 118,
+      "completedJobsCount": 135,
+      "portfolioPhotos": [
+        "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=500&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "pp-usr-prov-03",
+      "userId": "usr-prov-03",
+      "serviceCategory": "AC Repair & Service",
+      "services": [
+        "Jet Pump AC Service",
+        "Gas Charging (R32/R410)",
+        "PCB Circuit Repair",
+        "Cooling Diagnostics"
+      ],
+      "experienceYears": 11,
+      "bio": "Certified HVAC engineer. Trained in Daikin, Voltas, LG, and Blue Star inverter units. Equipped with digital manifold gauges and high-pressure jet pumps.",
+      "serviceAreas": [
+        "Vaishali Nagar",
+        "Mansarovar",
+        "Ajmer Road",
+        "Sodala"
+      ],
+      "pricingStartingAt": 499,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.95,
+      "reviewCount": 215,
+      "completedJobsCount": 240,
+      "portfolioPhotos": [
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=500&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "pp-usr-prov-04",
+      "userId": "usr-prov-04",
+      "serviceCategory": "RO Purifier Service",
+      "services": [
+        "RO Filter Replacement",
+        "Membrane Flush & Change",
+        "TDS Meter Calibration",
+        "UV/UF Lamp Setup"
+      ],
+      "experienceYears": 6,
+      "bio": "Dedicated water purification specialist. Genuine NSF-grade replacement filters for Kent, Aquaguard, Pureit, and Livpure. Free TDS water purity testing included.",
+      "serviceAreas": [
+        "Mansarovar",
+        "Tonk Road",
+        "Malviya Nagar",
+        "Jagatpura"
+      ],
+      "pricingStartingAt": 349,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.75,
+      "reviewCount": 94,
+      "completedJobsCount": 110,
+      "portfolioPhotos": []
+    },
+    {
+      "id": "pp-usr-prov-05",
+      "userId": "usr-prov-05",
+      "serviceCategory": "Computer & Laptop Repair",
+      "services": [
+        "Laptop Screen & Battery",
+        "SSD & RAM Upgrades",
+        "Chip-level Motherboard Repair",
+        "OS Reinstall & Data Recovery"
+      ],
+      "experienceYears": 8,
+      "bio": "Certified hardware & network engineer with chip-level diagnostic lab. Quick 60-minute doorstep diagnostics for Dell, HP, Lenovo, Asus, and Apple MacBooks.",
+      "serviceAreas": [
+        "Mansarovar",
+        "Malviya Nagar",
+        "Vaishali Nagar",
+        "Raja Park",
+        "C-Scheme"
+      ],
+      "pricingStartingAt": 449,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.88,
+      "reviewCount": 88,
+      "completedJobsCount": 104,
+      "portfolioPhotos": [
+        "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "pp-usr-prov-06",
+      "userId": "usr-prov-06",
+      "serviceCategory": "Full Home & Kitchen Cleaning",
+      "services": [
+        "Deep Bathroom Scrubbing",
+        "Modular Kitchen De-greasing",
+        "Sofa & Carpet Shampooing",
+        "Full House Move-in Clean"
+      ],
+      "experienceYears": 5,
+      "bio": "Professional eco-friendly residential and office sanitization service. Trained team with Taski industrial chemicals and Kärcher vacuum machinery.",
+      "serviceAreas": [
+        "Mansarovar",
+        "Malviya Nagar",
+        "Vaishali Nagar",
+        "Jagatpura",
+        "Bani Park"
+      ],
+      "pricingStartingAt": 799,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.92,
+      "reviewCount": 180,
+      "completedJobsCount": 195,
+      "portfolioPhotos": [
+        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&auto=format&fit=crop&q=80"
+      ]
+    },
+    {
+      "id": "pp-usr-prov-07",
+      "userId": "usr-prov-07",
+      "serviceCategory": "Painter & Wall Care",
+      "services": [
+        "Interior Plastic Emulsion",
+        "Waterproofing & Seepage Care",
+        "Royal Luxury Shyne",
+        "Wood Polish"
+      ],
+      "experienceYears": 4,
+      "bio": "Asian Paints trained master painter. Free color consultancy, laser measurement estimate, and dust-free mechanized sanding tools.",
+      "serviceAreas": [
+        "Mansarovar",
+        "Sanganer",
+        "Tonk Road"
+      ],
+      "pricingStartingAt": 599,
+      "availabilityStatus": "AVAILABLE",
+      "workingHours": "08:30 AM - 08:00 PM",
+      "verificationStatus": "APPROVED",
+      "rating": 4.6,
+      "reviewCount": 12,
+      "completedJobsCount": 15,
+      "portfolioPhotos": []
+    }
+  ],
+  "services": [
+    {
+      "id": "srv-electrician",
+      "name": "Electrician",
+      "slug": "electrician",
+      "description": "Wiring, switchboard repair, MCB tripping, fan & light installation, inverter repair",
+      "iconName": "Zap",
+      "basePrice": 199,
+      "categoryGroup": "Home Maintenance",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-plumber",
+      "name": "Plumber",
+      "slug": "plumber",
+      "description": "Tap & pipe leakage, toilet repair, water motor, sanitary fitting, pipeline blockages",
+      "iconName": "Wrench",
+      "basePrice": 249,
+      "categoryGroup": "Home Maintenance",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-ac-repair",
+      "name": "AC Repair & Service",
+      "slug": "ac-repair",
+      "description": "Split & window AC deep cleaning, gas refilling, cooling issues, compressor inspection",
+      "iconName": "Wind",
+      "basePrice": 499,
+      "categoryGroup": "Appliance Care",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-fridge-repair",
+      "name": "Fridge Repair",
+      "slug": "fridge-repair",
+      "description": "Single/Double door refrigerator diagnostics, thermostat, coil cleaning, gas charging",
+      "iconName": "Cpu",
+      "basePrice": 399,
+      "categoryGroup": "Appliance Care",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-ro-repair",
+      "name": "RO Purifier Service",
+      "slug": "ro-repair",
+      "description": "Water purifier filter replacement, membrane change, TDS adjustment, leakage fix",
+      "iconName": "Droplets",
+      "basePrice": 349,
+      "categoryGroup": "Appliance Care",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-laptop-pc",
+      "name": "Computer & Laptop Repair",
+      "slug": "computer-laptop-repair",
+      "description": "Windows/Mac OS install, SSD upgrade, screen replacement, overheating, virus removal",
+      "iconName": "Laptop",
+      "basePrice": 449,
+      "categoryGroup": "IT & Electronics",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-cleaning",
+      "name": "Full Home & Kitchen Cleaning",
+      "slug": "cleaning",
+      "description": "Deep home sanitization, bathroom scrubbing, kitchen de-greasing, sofa shampooing",
+      "iconName": "Sparkles",
+      "basePrice": 799,
+      "categoryGroup": "Cleaning & Pest",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "id": "srv-painter",
+      "name": "Painter & Wall Care",
+      "slug": "painter",
+      "description": "Interior & exterior painting, water-proofing, putty touch-up, texture design",
+      "iconName": "Paintbrush",
+      "basePrice": 599,
+      "categoryGroup": "Renovation",
+      "popular": false,
+      "isActive": true
+    },
+    {
+      "id": "srv-appliance",
+      "name": "Washing Machine Repair",
+      "slug": "washing-machine-repair",
+      "description": "Top/Front load washing machine spin failure, motor repair, drum balancing, water drain",
+      "iconName": "Settings",
+      "basePrice": 399,
+      "categoryGroup": "Appliance Care",
+      "popular": true,
+      "isActive": true
+    },
+    {
+      "name": "CCTV Camera Installation",
+      "slug": "cctv-camera-installation",
+      "description": "Doorbell & camera installation",
+      "iconName": "Wrench",
+      "basePrice": 499,
+      "categoryGroup": "Security & Smart Home",
+      "popular": false,
+      "isActive": true,
+      "id": "srv-1789494271600"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-01",
+      "bookingCode": "SC-2026-000101",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerPhone": "+91 98290 22222",
+      "customerEmail": "rahul.customer@gmail.com",
+      "providerId": "usr-prov-01",
+      "providerName": "Rajesh Sharma",
+      "providerPhone": "+91 98290 33001",
+      "providerAvatar": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80",
+      "serviceId": "srv-electrician",
+      "serviceName": "Electrician",
+      "serviceCategory": "Home Maintenance",
+      "date": "2026-09-10",
+      "timeSlot": "10:00 AM - 12:00 PM",
+      "address": "Flat 402, Royal Palms Residency, VT Road",
+      "city": "Jaipur",
+      "area": "Mansarovar",
+      "pincode": "302020",
+      "problemDescription": "Kitchen main switchboard sparking and MCB tripping when microwave is turned on.",
+      "estimatedPrice": 399,
+      "platformFee": 49,
+      "taxAmount": 22,
+      "totalAmount": 470,
+      "platformCommission": 40,
+      "providerEarnings": 359,
+      "status": "COMPLETED",
+      "paymentStatus": "PAID",
+      "paymentMethod": "Cash on Service",
+      "completedAt": "2026-09-10T11:45:00.000Z",
+      "createdAt": "2026-09-09T14:30:00.000Z",
+      "updatedAt": "2026-09-10T11:45:00.000Z",
+      "statusHistory": [
+        {
+          "id": "sh-01",
+          "bookingId": "bk-01",
+          "status": "PENDING",
+          "changedByRole": "CUSTOMER",
+          "note": "Booking submitted by customer",
+          "timestamp": "2026-09-09T14:30:00.000Z"
+        },
+        {
+          "id": "sh-02",
+          "bookingId": "bk-01",
+          "status": "ACCEPTED",
+          "changedByRole": "PROVIDER",
+          "note": "Rajesh Sharma accepted the request",
+          "timestamp": "2026-09-09T14:45:00.000Z"
+        },
+        {
+          "id": "sh-03",
+          "bookingId": "bk-01",
+          "status": "PROVIDER_ON_THE_WAY",
+          "changedByRole": "PROVIDER",
+          "note": "Technician dispatched with replacement 32A MCB and toolkit",
+          "timestamp": "2026-09-10T09:40:00.000Z"
+        },
+        {
+          "id": "sh-04",
+          "bookingId": "bk-01",
+          "status": "IN_PROGRESS",
+          "changedByRole": "PROVIDER",
+          "note": "Diagnosing neutral wire burnout and rewiring switchboard",
+          "timestamp": "2026-09-10T10:15:00.000Z"
+        },
+        {
+          "id": "sh-05",
+          "bookingId": "bk-01",
+          "status": "COMPLETED",
+          "changedByRole": "PROVIDER",
+          "note": "Rewiring complete. Load test passed successfully.",
+          "timestamp": "2026-09-10T11:45:00.000Z"
+        }
+      ],
+      "review": {
+        "id": "rev-01",
+        "bookingId": "bk-01",
+        "customerId": "usr-cust-01",
+        "customerName": "Rahul Verma",
+        "customerAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+        "providerId": "usr-prov-01",
+        "rating": 5,
+        "reviewText": "Rajesh ji arrived strictly on time with proper safety footwear and tester equipment. He quickly identified the burnt neutral wire in the switchboard, replaced the MCB, and left the work area completely clean. Extremely professional and courteous!",
+        "createdAt": "2026-09-10T12:15:00.000Z",
+        "isModerated": false
+      }
+    },
+    {
+      "id": "bk-02",
+      "bookingCode": "SC-2026-000102",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerPhone": "+91 98290 22222",
+      "customerEmail": "rahul.customer@gmail.com",
+      "providerId": "usr-prov-03",
+      "providerName": "Vikram Singh Shekhawat",
+      "providerPhone": "+91 98290 33003",
+      "providerAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "serviceId": "srv-ac-repair",
+      "serviceName": "AC Repair & Service",
+      "serviceCategory": "Appliance Care",
+      "date": "2026-09-15",
+      "timeSlot": "02:00 PM - 04:00 PM",
+      "address": "Flat 402, Royal Palms Residency, VT Road",
+      "city": "Jaipur",
+      "area": "Mansarovar",
+      "pincode": "302020",
+      "problemDescription": "Split AC indoor unit leaking water and cooling is weak. Needs foam jet cleaning.",
+      "estimatedPrice": 699,
+      "platformFee": 49,
+      "taxAmount": 37,
+      "totalAmount": 785,
+      "platformCommission": 70,
+      "providerEarnings": 629,
+      "status": "PROVIDER_ON_THE_WAY",
+      "paymentStatus": "PENDING",
+      "paymentMethod": "UPI / Doorstep Pay",
+      "createdAt": "2026-09-14T18:00:00.000Z",
+      "updatedAt": "2026-09-15T13:40:00.000Z",
+      "statusHistory": [
+        {
+          "id": "sh-06",
+          "bookingId": "bk-02",
+          "status": "PENDING",
+          "changedByRole": "CUSTOMER",
+          "note": "Booking requested by Rahul",
+          "timestamp": "2026-09-14T18:00:00.000Z"
+        },
+        {
+          "id": "sh-07",
+          "bookingId": "bk-02",
+          "status": "ACCEPTED",
+          "changedByRole": "PROVIDER",
+          "note": "Vikram Singh confirmed slot for 2 PM",
+          "timestamp": "2026-09-14T18:20:00.000Z"
+        },
+        {
+          "id": "sh-08",
+          "bookingId": "bk-02",
+          "status": "PROVIDER_ON_THE_WAY",
+          "changedByRole": "PROVIDER",
+          "note": "Heading towards Mansarovar with pressure washer",
+          "timestamp": "2026-09-15T13:40:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "bk-03",
+      "bookingCode": "SC-2026-000103",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerPhone": "+91 98290 22222",
+      "customerEmail": "rahul.customer@gmail.com",
+      "providerId": "usr-prov-02",
+      "providerName": "Amit Kumar Saini",
+      "providerPhone": "+91 98290 33002",
+      "providerAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "serviceId": "srv-plumber",
+      "serviceName": "Plumber",
+      "serviceCategory": "Home Maintenance",
+      "date": "2026-09-16",
+      "timeSlot": "11:00 AM - 01:00 PM",
+      "address": "Flat 402, Royal Palms Residency, VT Road",
+      "city": "Jaipur",
+      "area": "Mansarovar",
+      "pincode": "302020",
+      "problemDescription": "Overhead tank sensor wire broken and bathroom shower mixer valve dripping constantly.",
+      "estimatedPrice": 349,
+      "platformFee": 49,
+      "taxAmount": 20,
+      "totalAmount": 418,
+      "platformCommission": 35,
+      "providerEarnings": 314,
+      "status": "PENDING",
+      "paymentStatus": "PENDING",
+      "paymentMethod": "UPI / Doorstep Pay",
+      "createdAt": "2026-09-15T08:15:00.000Z",
+      "updatedAt": "2026-09-15T08:15:00.000Z",
+      "statusHistory": [
+        {
+          "id": "sh-09",
+          "bookingId": "bk-03",
+          "status": "PENDING",
+          "changedByRole": "CUSTOMER",
+          "note": "Awaiting provider confirmation",
+          "timestamp": "2026-09-15T08:15:00.000Z"
+        }
+      ]
+    }
+  ],
+  "bookingStatusHistory": [
+    {
+      "id": "sh-01",
+      "bookingId": "bk-01",
+      "status": "PENDING",
+      "changedByRole": "CUSTOMER",
+      "note": "Booking submitted by customer",
+      "timestamp": "2026-09-09T14:30:00.000Z"
+    },
+    {
+      "id": "sh-02",
+      "bookingId": "bk-01",
+      "status": "ACCEPTED",
+      "changedByRole": "PROVIDER",
+      "note": "Rajesh Sharma accepted the request",
+      "timestamp": "2026-09-09T14:45:00.000Z"
+    },
+    {
+      "id": "sh-03",
+      "bookingId": "bk-01",
+      "status": "PROVIDER_ON_THE_WAY",
+      "changedByRole": "PROVIDER",
+      "note": "Technician dispatched with replacement 32A MCB and toolkit",
+      "timestamp": "2026-09-10T09:40:00.000Z"
+    },
+    {
+      "id": "sh-04",
+      "bookingId": "bk-01",
+      "status": "IN_PROGRESS",
+      "changedByRole": "PROVIDER",
+      "note": "Diagnosing neutral wire burnout and rewiring switchboard",
+      "timestamp": "2026-09-10T10:15:00.000Z"
+    },
+    {
+      "id": "sh-05",
+      "bookingId": "bk-01",
+      "status": "COMPLETED",
+      "changedByRole": "PROVIDER",
+      "note": "Rewiring complete. Load test passed successfully.",
+      "timestamp": "2026-09-10T11:45:00.000Z"
+    },
+    {
+      "id": "sh-06",
+      "bookingId": "bk-02",
+      "status": "PENDING",
+      "changedByRole": "CUSTOMER",
+      "note": "Booking requested by Rahul",
+      "timestamp": "2026-09-14T18:00:00.000Z"
+    },
+    {
+      "id": "sh-07",
+      "bookingId": "bk-02",
+      "status": "ACCEPTED",
+      "changedByRole": "PROVIDER",
+      "note": "Vikram Singh confirmed slot for 2 PM",
+      "timestamp": "2026-09-14T18:20:00.000Z"
+    },
+    {
+      "id": "sh-08",
+      "bookingId": "bk-02",
+      "status": "PROVIDER_ON_THE_WAY",
+      "changedByRole": "PROVIDER",
+      "note": "Heading towards Mansarovar with pressure washer",
+      "timestamp": "2026-09-15T13:40:00.000Z"
+    },
+    {
+      "id": "sh-09",
+      "bookingId": "bk-03",
+      "status": "PENDING",
+      "changedByRole": "CUSTOMER",
+      "note": "Awaiting provider confirmation",
+      "timestamp": "2026-09-15T08:15:00.000Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-01",
+      "bookingId": "bk-01",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "providerId": "usr-prov-01",
+      "rating": 5,
+      "reviewText": "Rajesh ji arrived strictly on time with proper safety footwear and tester equipment. He quickly identified the burnt neutral wire in the switchboard, replaced the MCB, and left the work area completely clean. Extremely professional and courteous!",
+      "createdAt": "2026-09-10T12:15:00.000Z",
+      "isModerated": false
+    }
+  ],
+  "commissions": [
+    {
+      "id": "comm-01",
+      "bookingId": "bk-01",
+      "bookingCode": "SC-2026-000101",
+      "serviceName": "Electrician",
+      "providerId": "usr-prov-01",
+      "providerName": "Rajesh Sharma",
+      "bookingAmount": 399,
+      "commissionPercentage": 10,
+      "commissionAmount": 39.9,
+      "providerEarnings": 359.1,
+      "createdAt": "2026-09-10T11:45:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "userId": "usr-prov-07",
+      "role": "PROVIDER",
+      "title": "Account Status: APPROVED",
+      "message": "Congratulations! Your partner account has been verified. You can now accept customer bookings.",
+      "type": "VERIFICATION",
+      "link": "/provider/dashboard",
+      "id": "notif-1789494265327-l9w",
+      "createdAt": "2026-09-15T17:44:25.327Z",
+      "isRead": false
+    },
+    {
+      "id": "notif-01",
+      "userId": "usr-cust-01",
+      "role": "CUSTOMER",
+      "title": "Technician is On The Way!",
+      "message": "Vikram Singh Shekhawat has dispatched for your AC Repair booking (SC-2026-000102).",
+      "type": "STATUS_CHANGED",
+      "isRead": true,
+      "link": "/customer/bookings",
+      "createdAt": "2026-09-15T13:40:00.000Z"
+    },
+    {
+      "id": "notif-02",
+      "userId": "usr-prov-02",
+      "role": "PROVIDER",
+      "title": "New Booking Request Received",
+      "message": "You have a new plumbing booking request for tomorrow at 11:00 AM (SC-2026-000103).",
+      "type": "BOOKING_CREATED",
+      "isRead": false,
+      "link": "/provider/dashboard",
+      "createdAt": "2026-09-15T08:15:00.000Z"
+    }
+  ],
+  "settings": {
+    "platformName": "SevaConnect",
+    "supportPhone": "+91 8709107808",
+    "supportEmail": "ambitionglu@gmail.com",
+    "defaultCommissionPercentage": 10,
+    "platformFee": 49,
+    "selectedCity": "Jaipur",
+    "currencySymbol": "₹",
+    "cancellationWindowHours": 2,
+    "instantApproval": false,
+    "merchantPhotoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    "merchantPayeeName": "Ravi Kumar",
+    "merchantUpiId": "ravikanhauli91@ptyes",
+    "merchantVerified": true
+  },
+  "payments": [
+    {
+      "id": "PAY-2026-000101",
+      "bookingId": "bk-01",
+      "bookingCode": "SC-2026-000101",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerEmail": "rahul.customer@gmail.com",
+      "customerPhone": "+91 98290 22222",
+      "serviceOrPlan": "Electrician Service (Kitchen Switchboard)",
+      "amount": 470,
+      "upiId": "ravikanhauli91@ptyes",
+      "utr": "427819034821",
+      "status": "VERIFIED / PAID",
+      "createdAt": "2026-09-10T10:15:00.000Z",
+      "updatedAt": "2026-09-10T10:30:00.000Z",
+      "verifiedAt": "2026-09-10T10:30:00.000Z",
+      "verifiedByAdminId": "usr-admin-01",
+      "verifiedByAdminName": "Super Administrator",
+      "adminRemarks": "Verified in Axis UPI merchant statement. Transaction settled.",
+      "history": [
+        {
+          "status": "PENDING VERIFICATION",
+          "changedBy": "Rahul Verma",
+          "changedAt": "2026-09-10T10:15:00.000Z",
+          "note": "Payment submitted with UTR: 427819034821"
+        },
+        {
+          "status": "VERIFIED / PAID",
+          "changedBy": "Super Administrator",
+          "changedAt": "2026-09-10T10:30:00.000Z",
+          "note": "Verified in Axis UPI merchant statement. Transaction settled."
+        }
+      ]
+    },
+    {
+      "id": "PAY-2026-000102",
+      "bookingId": "bk-02",
+      "bookingCode": "SC-2026-000102",
+      "customerId": "usr-cust-01",
+      "customerName": "Rahul Verma",
+      "customerEmail": "rahul.customer@gmail.com",
+      "customerPhone": "+91 98290 22222",
+      "serviceOrPlan": "Plumber Service (Bathroom Concealed Leakage)",
+      "amount": 600,
+      "upiId": "ravikanhauli91@ptyes",
+      "utr": "427829045192",
+      "status": "PENDING VERIFICATION",
+      "createdAt": "2026-09-22T08:30:00.000Z",
+      "updatedAt": "2026-09-22T08:30:00.000Z",
+      "history": [
+        {
+          "status": "PENDING VERIFICATION",
+          "changedBy": "Rahul Verma",
+          "changedAt": "2026-09-22T08:30:00.000Z",
+          "note": "Payment submitted via GPay, awaiting bank credit verification."
+        }
+      ]
+    },
+    {
+      "id": "PAY-2026-000103",
+      "bookingId": "ORD-SUB-902",
+      "bookingCode": "SUB-VIP-0902",
+      "customerId": "usr-cust-02",
+      "customerName": "Pooja Sharma",
+      "customerEmail": "pooja.sharma.tech@gmail.com",
+      "customerPhone": "+91 98290 55443",
+      "serviceOrPlan": "Elite Home Care Annual Subscription",
+      "amount": 2499,
+      "upiId": "ravikanhauli91@ptyes",
+      "utr": "427805128394",
+      "status": "VERIFIED / PAID",
+      "createdAt": "2026-09-21T14:20:00.000Z",
+      "updatedAt": "2026-09-21T14:45:00.000Z",
+      "verifiedAt": "2026-09-21T14:45:00.000Z",
+      "verifiedByAdminId": "usr-admin-01",
+      "verifiedByAdminName": "Super Administrator",
+      "adminRemarks": "Credit verified in bank passbook. Annual subscription activated.",
+      "history": [
+        {
+          "status": "PENDING VERIFICATION",
+          "changedBy": "Pooja Sharma",
+          "changedAt": "2026-09-21T14:20:00.000Z",
+          "note": "UPI Payment submitted for Annual Plan"
+        },
+        {
+          "status": "VERIFIED / PAID",
+          "changedBy": "Super Administrator",
+          "changedAt": "2026-09-21T14:45:00.000Z",
+          "note": "Credit verified in bank passbook. Annual subscription activated."
+        }
+      ]
+    }
+  ]
+}

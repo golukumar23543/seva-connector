@@ -1,0 +1,6 @@
+{
+  "name": "Seva Connecter",
+  "description": "A premium local service booking marketplace connecting customers with verified local service professionals like electricians, plumbers, AC/appliance technicians, and cleaners.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
