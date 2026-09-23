@@ -834,7 +834,7 @@ Helpline: +91 98290 11111 | support@sevaconnect.in
                         Exclusive Service &amp; Offers for Patna District Residents:
                       </strong>
                       <span className="text-slate-600 text-[11px] block mt-0.5">
-                        Our verified technician network covers all urban localities, blocks, and rural villages across Patna District (हर गाँव और शहर में सेवा उपलब्ध).
+                        Our verified technician network covers all urban localities, blocks, and rural villages across Patna District.
                       </span>
                     </div>
                   </div>

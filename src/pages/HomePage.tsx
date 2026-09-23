@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Wrench,
   ShieldCheck,
@@ -66,14 +67,31 @@ export function HomePage({
 
   // 2. Package carousel & Music Player state
   const [packageIndex, setPackageIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(1);
   const [showPackageDetails, setShowPackageDetails] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [displayDuration, setDisplayDuration] = useState(5);
+
+  const handleNextPackage = () => {
+    setSlideDirection(1);
+    setPackageIndex((prev) => (prev + 1) % 3);
+  };
+
+  const handlePrevPackage = () => {
+    setSlideDirection(-1);
+    setPackageIndex((prev) => (prev > 0 ? prev - 1 : 2));
+  };
+
+  const handleSelectPackage = (idx: number) => {
+    setSlideDirection(idx >= packageIndex ? 1 : -1);
+    setPackageIndex(idx);
+  };
 
   // Auto-play effect matching duration from image
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
+      setSlideDirection(1);
       setPackageIndex((prev) => (prev + 1) % 3);
     }, displayDuration * 1000);
     return () => clearInterval(interval);
@@ -464,14 +482,14 @@ export function HomePage({
   };
 
   return (
-    <div className="bg-[#070e14] text-slate-100 min-h-screen selection:bg-[#0df2a4] selection:text-slate-950">
+    <div className="bg-transparent text-slate-100 min-h-screen selection:bg-emerald-400 selection:text-slate-950">
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (Reference Video Frame 00:00) */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-teal-500/20 overflow-hidden">
-        {/* Subtle radial glow backgrounds */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0df2a4]/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <section className="relative pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-slate-800/80 overflow-hidden">
+        {/* Subtle atmospheric radial glow backgrounds */}
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -481,19 +499,19 @@ export function HomePage({
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white font-display tracking-tight leading-[1.12]">
                 Aapki Zarurat,
                 <br />
-                <span className="text-[#0df2a4] text-neon-cyan">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 drop-shadow-[0_0_25px_rgba(16,185,129,0.35)]">
                   Hamara Samadhan
                 </span>
               </h1>
 
               {/* Supporting Subtitle */}
               <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl font-normal">
-                Certified Electricians, Plumbers, AC Specialists &amp; Technicians at your doorstep within 45 minutes across <strong>Patna District (All City Zones, Blocks &amp; Rural Villages / हर गाँव)</strong> with transparent upfront pricing.
+                Certified Electricians, Plumbers, AC Specialists &amp; Technicians at your doorstep within 45 minutes across <strong>Patna District (All City Zones, Blocks &amp; Rural Villages)</strong> with transparent upfront pricing.
               </p>
 
               {/* Service Exclusivity Banner */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/15 border border-teal-500/35 text-teal-300 text-xs font-semibold">
-                <MapPin className="w-3.5 h-3.5 text-[#0df2a4] shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+                <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>Exclusive Service &amp; Offers for Patna District Residents (All Towns &amp; Villages)</span>
               </div>
 
@@ -501,7 +519,7 @@ export function HomePage({
               <div className="flex flex-wrap items-center gap-4 pt-1">
                 <button
                   onClick={() => onOpenBooking()}
-                  className="px-6 sm:px-7 py-3.5 rounded-full bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-extrabold text-sm shadow-[0_0_25px_rgba(13,242,164,0.45)] hover:shadow-[0_0_35px_rgba(13,242,164,0.7)] transition-all flex items-center gap-2 group cursor-pointer"
+                  className="px-6 sm:px-7 py-3.5 rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-emerald-400 text-slate-950 font-extrabold text-sm shadow-[0_4px_20px_rgba(16,185,129,0.35)] hover:shadow-[0_6px_28px_rgba(16,185,129,0.55)] transition-all flex items-center gap-2 group cursor-pointer"
                 >
                   <Phone className="w-4 h-4 text-slate-950" />
                   <span>Book Service / Contact Us</span>
@@ -510,10 +528,10 @@ export function HomePage({
 
                 <button
                   onClick={() => onNavigate('search')}
-                  className="px-6 sm:px-7 py-3.5 rounded-full bg-[#09151e] hover:bg-[#0f2332] text-slate-200 border border-teal-500/40 hover:border-[#0df2a4] text-sm font-bold transition-all flex items-center gap-2 group cursor-pointer shadow-md"
+                  className="px-6 sm:px-7 py-3.5 rounded-full bg-[#111827] hover:bg-[#1a233a] text-slate-200 border border-slate-700/80 hover:border-emerald-400/60 text-sm font-bold transition-all flex items-center gap-2 group cursor-pointer shadow-lg"
                 >
                   <span>Explore Services</span>
-                  <ArrowRight className="w-4 h-4 text-[#0df2a4] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
 
@@ -521,11 +539,11 @@ export function HomePage({
               <div className="pt-2">
                 <form
                   onSubmit={handleHeroSearch}
-                  className="p-2 sm:p-2.5 rounded-2xl bg-[#091621] border border-teal-500/30 hover:border-[#0df2a4]/60 shadow-[0_4px_25px_rgba(0,0,0,0.5)] transition-all flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
+                  className="p-2 sm:p-2.5 rounded-2xl bg-[#0f172a] border border-slate-700/80 hover:border-emerald-400/50 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3"
                 >
                   {/* Location Segment */}
-                  <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#061017] border border-teal-500/20 text-xs text-slate-200 shrink-0">
-                    <MapPin className="w-3.5 h-3.5 text-[#0df2a4]" />
+                  <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#162032] border border-slate-700/50 text-xs text-slate-200 shrink-0">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
                     <span className="font-semibold">{selectedCity || 'Patna, Bihar'}</span>
                   </div>
 
@@ -544,7 +562,7 @@ export function HomePage({
                   {/* Search Submit Button */}
                   <button
                     type="submit"
-                    className="px-6 py-2.5 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-bold text-xs sm:text-sm shadow-[0_0_15px_rgba(13,242,164,0.4)] transition-all flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-emerald-400 text-slate-950 font-bold text-xs sm:text-sm shadow-[0_2px_14px_rgba(16,185,129,0.35)] transition-all flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
                   >
                     <span>Search</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -559,7 +577,7 @@ export function HomePage({
                       key={item}
                       type="button"
                       onClick={() => onNavigate('search', { search: item })}
-                      className="px-3 py-1 rounded-full bg-[#0a1721] hover:bg-[#0e2433] border border-teal-500/20 hover:border-[#0df2a4]/60 text-slate-300 hover:text-[#0df2a4] transition-all cursor-pointer text-[11px]"
+                      className="px-3 py-1 rounded-full bg-[#131b2e] hover:bg-[#1a253d] border border-slate-700/60 hover:border-emerald-400/60 text-slate-300 hover:text-emerald-400 transition-all cursor-pointer text-[11px]"
                     >
                       {item}
                     </button>
@@ -581,7 +599,7 @@ export function HomePage({
       {/* ========================================================================= */}
       {/* 2. TRUST & METRICS 4-CARD STRIP (Frames 00:00 - 00:01) */}
       {/* ========================================================================= */}
-      <section className="py-8 border-b border-teal-500/20 bg-[#050c12] relative overflow-hidden">
+      <section className="py-8 border-b border-slate-800/80 bg-[#080c14]/80 backdrop-blur-md relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Card 1: 45-Min Arrival with Note & Link to Webpage */}
@@ -589,24 +607,24 @@ export function HomePage({
               delay={0}
               distance={24}
               glowOnReveal={true}
-              glowColor="rgba(13, 242, 164, 0.35)"
+              glowColor="rgba(16, 185, 129, 0.35)"
               className="h-full"
             >
               <div
                 onClick={() => onNavigate("45-min-arrival")}
-                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-[#08151f] hover:bg-[#0a1c2a] border border-teal-500/30 hover:border-[#0df2a4] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_30px_rgba(13,242,164,0.28)] relative overflow-hidden h-full"
+                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#111827] to-[#0d1322] hover:from-[#141e33] hover:to-[#0f172a] border border-slate-800 hover:border-emerald-400/60 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_32px_rgba(16,185,129,0.22)] relative overflow-hidden h-full"
                 title="Click to view 45-Min Arrival Guarantee Terms & Notes"
               >
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-[#0df2a4]/15 border border-[#0df2a4]/30 flex items-center justify-center text-[#0df2a4] group-hover:scale-110 group-hover:border-[#0df2a4]/60 group-hover:shadow-[0_0_16px_rgba(13,242,164,0.4)] transition-all duration-300 shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:border-emerald-400/60 group-hover:shadow-[0_0_16px_rgba(16,185,129,0.4)] transition-all duration-300 shrink-0">
                     <Clock className="w-6 h-6 animate-icon-breathe" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <h3 className="text-sm sm:text-base font-extrabold text-white font-display group-hover:text-[#0df2a4] transition-colors">
+                      <h3 className="text-sm sm:text-base font-extrabold text-white font-display group-hover:text-emerald-300 transition-colors">
                         45-Min Arrival
                       </h3>
-                      <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-[#0df2a4]/15 text-[#0df2a4] border border-[#0df2a4]/30 font-mono group-hover:shadow-[0_0_10px_rgba(13,242,164,0.3)] transition-shadow">
+                      <span className="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-400/15 text-emerald-400 border border-emerald-400/30 font-mono group-hover:shadow-[0_0_10px_rgba(16,185,129,0.3)] transition-shadow">
                         Policy
                       </span>
                     </div>
@@ -617,12 +635,12 @@ export function HomePage({
                 </div>
 
                 {/* Note points requested by user */}
-                <div className="pt-2 border-t border-teal-500/20 flex flex-col gap-1 text-[11px]">
-                  <div className="flex items-center gap-1.5 text-teal-300 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0df2a4] shrink-0 animate-ping" />
+                <div className="pt-2 border-t border-slate-800/80 flex flex-col gap-1 text-[11px]">
+                  <div className="flex items-center gap-1.5 text-emerald-300 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-ping" />
                     <span>Note: 5-Min dispatch • ₹50 credit if delayed</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 group-hover:text-[#0df2a4] transition-colors flex items-center justify-between font-mono">
+                  <div className="text-[10px] text-slate-400 group-hover:text-emerald-300 transition-colors flex items-center justify-between font-mono">
                     <span>Click to view guarantee policy notes</span>
                     <span className="font-bold group-hover:translate-x-1 transition-transform">&rarr;</span>
                   </div>
@@ -640,7 +658,7 @@ export function HomePage({
             >
               <div
                 onClick={() => setAadhaarModalOpen(true)}
-                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-[#08151f] hover:bg-[#0a1c2a] border border-teal-500/30 hover:border-cyan-400 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_30px_rgba(6,182,212,0.28)] relative overflow-hidden h-full"
+                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#111827] to-[#0d1322] hover:from-[#141e33] hover:to-[#0f172a] border border-slate-800 hover:border-cyan-400/60 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_32px_rgba(6,182,212,0.22)] relative overflow-hidden h-full"
                 title="Click to view 100% Aadhaar Verification & Safety Notes"
               >
                 <div className="flex items-center gap-3.5">
@@ -663,7 +681,7 @@ export function HomePage({
                 </div>
 
                 {/* Note points */}
-                <div className="pt-2 border-t border-teal-500/20 flex flex-col gap-1 text-[11px]">
+                <div className="pt-2 border-t border-slate-800/80 flex flex-col gap-1 text-[11px]">
                   <div className="flex items-center gap-1.5 text-cyan-300 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 animate-ping" />
                     <span>Note: Govt. e-KYC • Police check • OTP entry</span>
@@ -686,7 +704,7 @@ export function HomePage({
             >
               <div
                 onClick={() => setUpiModalOpen(true)}
-                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-[#08151f] hover:bg-[#0a1c2a] border border-teal-500/30 hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_30px_rgba(16,185,129,0.28)] relative overflow-hidden h-full"
+                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#111827] to-[#0d1322] hover:from-[#141e33] hover:to-[#0f172a] border border-slate-800 hover:border-emerald-400/60 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_32px_rgba(16,185,129,0.22)] relative overflow-hidden h-full"
                 title="Click to view UPI Payment & QR Code"
               >
                 <div className="flex items-center gap-3.5">
@@ -709,7 +727,7 @@ export function HomePage({
                 </div>
 
                 {/* Note points */}
-                <div className="pt-2 border-t border-teal-500/20 flex flex-col gap-1 text-[11px]">
+                <div className="pt-2 border-t border-slate-800/80 flex flex-col gap-1 text-[11px]">
                   <div className="flex items-center gap-1.5 text-emerald-300 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 animate-ping" />
                     <span>Note: Inspect work first • Pay via QR/UPI/Cash</span>
@@ -732,7 +750,7 @@ export function HomePage({
             >
               <div
                 onClick={() => setWarrantyModalOpen(true)}
-                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-[#08151f] hover:bg-[#0a1c2a] border border-teal-500/30 hover:border-amber-400 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_30px_rgba(245,158,11,0.28)] relative overflow-hidden h-full"
+                className="cursor-pointer p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#111827] to-[#0d1322] hover:from-[#141e33] hover:to-[#0f172a] border border-slate-800 hover:border-amber-400/60 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-3 shadow-lg group hover:shadow-[0_12px_32px_rgba(245,158,11,0.22)] relative overflow-hidden h-full"
                 title="Click to view 7-Day Free Warranty Terms & Notes"
               >
                 <div className="flex items-center gap-3.5">
@@ -755,7 +773,7 @@ export function HomePage({
                 </div>
 
                 {/* Note points */}
-                <div className="pt-2 border-t border-teal-500/20 flex flex-col gap-1 text-[11px]">
+                <div className="pt-2 border-t border-slate-800/80 flex flex-col gap-1 text-[11px]">
                   <div className="flex items-center gap-1.5 text-amber-300 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 animate-ping" />
                     <span>Note: ₹0 re-visit fee • Zero labour charge</span>
@@ -826,28 +844,28 @@ export function HomePage({
                   className="h-full"
                 >
                   <div
-                    className={`bg-[#091621] hover:bg-[#0a1c2a] border ${
+                    className={`bg-gradient-to-b from-[#111827] to-[#0d1322] hover:from-[#152035] hover:to-[#0f172a] border ${
                       isPopular
-                        ? 'border-[#0df2a4]/60 animate-pulse-subtle-glow'
-                        : 'border-teal-500/25'
-                    } hover:border-[#0df2a4] rounded-2xl p-5 shadow-xl hover:shadow-[0_12px_32px_rgba(13,242,164,0.22)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full relative overflow-hidden`}
+                        ? 'border-emerald-400/80 shadow-[0_8px_30px_rgba(16,185,129,0.22)]'
+                        : 'border-slate-800/90'
+                    } hover:border-emerald-400/60 rounded-2xl p-5 shadow-xl hover:shadow-[0_12px_32px_rgba(16,185,129,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group h-full relative overflow-hidden`}
                   >
                     {/* Top: Icon + Badge */}
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-11 h-11 rounded-xl bg-[#061017] border border-teal-500/30 flex items-center justify-center group-hover:scale-110 group-hover:border-[#0df2a4]/50 group-hover:shadow-[0_0_15px_rgba(13,242,164,0.35)] transition-all duration-300 shrink-0">
+                        <div className="w-11 h-11 rounded-xl bg-[#162032] border border-slate-700/60 flex items-center justify-center group-hover:scale-110 group-hover:border-emerald-400/50 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.35)] transition-all duration-300 shrink-0">
                           <ServiceIcon className={`w-5 h-5 ${service.iconColor} animate-icon-breathe`} />
                         </div>
                         {service.badge && (
                           <span
-                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider border ${service.badgeColor} group-hover:shadow-[0_0_10px_rgba(13,242,164,0.3)] transition-shadow`}
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider border ${service.badgeColor} group-hover:shadow-[0_0_10px_rgba(16,185,129,0.3)] transition-shadow`}
                           >
                             {service.badge}
                           </span>
                         )}
                       </div>
 
-                      <h3 className="text-lg font-extrabold text-white font-display group-hover:text-[#0df2a4] transition-colors">
+                      <h3 className="text-lg font-extrabold text-white font-display group-hover:text-emerald-300 transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
@@ -855,10 +873,10 @@ export function HomePage({
                       </p>
 
                       {/* 2 Bullet Points with Teal Checkmarks */}
-                      <div className="mt-4 space-y-2 border-t border-teal-900/40 pt-3">
+                      <div className="mt-4 space-y-2 border-t border-slate-800/80 pt-3">
                         {service.bullets.map((bullet, bidx) => (
                           <div key={bidx} className="flex items-start gap-2 text-xs text-slate-300">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#0df2a4] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                             <span className="leading-tight">{bullet}</span>
                           </div>
                         ))}
@@ -866,17 +884,17 @@ export function HomePage({
                     </div>
 
                     {/* Bottom: Price + Book Now Button */}
-                    <div className="mt-5 pt-4 border-t border-teal-900/40 flex items-center justify-between">
+                    <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] text-slate-400 block uppercase font-medium">Starts</span>
-                        <span className="text-base font-extrabold text-[#0df2a4] font-mono">
+                        <span className="text-base font-extrabold text-emerald-400 font-mono">
                           {service.price}
                         </span>
                       </div>
 
                       <button
                         onClick={() => onOpenBooking(service.id)}
-                        className="px-4 py-2 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-extrabold text-xs shadow-[0_0_15px_rgba(13,242,164,0.35)] hover:shadow-[0_0_22px_rgba(13,242,164,0.55)] transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-emerald-400 text-slate-950 font-extrabold text-xs shadow-[0_2px_14px_rgba(16,185,129,0.35)] hover:shadow-[0_4px_20px_rgba(16,185,129,0.55)] transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
                       >
                         <span>Book Now</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -902,234 +920,270 @@ export function HomePage({
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. MAINTENANCE & CARE PACKAGES (Full-Screen 3D Cyber Tunnel Animation) */}
+      {/* 4. MAINTENANCE & CARE PACKAGES (Exact 1:1 Cyber 3D Tunnel from Video) */}
       {/* ========================================================================= */}
       <section className="min-h-screen w-full relative flex flex-col justify-center py-12 sm:py-16 border-b border-teal-500/20 overflow-hidden bg-[#02070a]" id="packages-section">
         {/* Full-Screen 3D Cyber Perspective Tunnel Background (Edge-to-Edge 100vw × 100vh) */}
         <div className="absolute inset-0 w-full h-full cyber-tunnel-viewport pointer-events-none overflow-hidden z-0">
           {/* Floor Moving Grid - Extends across entire screen width */}
-          <div className="absolute inset-x-[-25%] bottom-0 h-[52%] tunnel-floor opacity-55" />
+          <div className="absolute inset-x-[-25%] bottom-0 h-[52%] tunnel-floor opacity-60" />
           {/* Ceiling Moving Grid - Extends across entire screen width */}
-          <div className="absolute inset-x-[-25%] top-0 h-[52%] tunnel-ceiling opacity-40" />
+          <div className="absolute inset-x-[-25%] top-0 h-[52%] tunnel-ceiling opacity-45" />
           {/* Left Wall Moving Grid */}
-          <div className="absolute left-0 top-[-25%] bottom-[-25%] w-[48%] tunnel-wall-left opacity-45" />
+          <div className="absolute left-0 top-[-25%] bottom-[-25%] w-[48%] tunnel-wall-left opacity-50" />
           {/* Right Wall Moving Grid */}
-          <div className="absolute right-0 top-[-25%] bottom-[-25%] w-[48%] tunnel-wall-right opacity-45" />
+          <div className="absolute right-0 top-[-25%] bottom-[-25%] w-[48%] tunnel-wall-right opacity-50" />
 
-          {/* Center Back Portal Frame */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-36 sm:w-80 sm:h-52 tunnel-portal" />
+          {/* Radial Vanishing Point Center Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[480px] sm:h-[480px] bg-[#0df2a4]/15 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
           {/* Horizontal Sweeping Laser Line */}
           <div className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#0df2a4] to-transparent shadow-[0_0_20px_#0df2a4] animate-laser-sweep pointer-events-none z-0" />
 
-          {/* Concentric Rotating Cyber Circles */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] sm:w-[720px] sm:h-[720px] rounded-full border border-teal-500/25 animate-rotate-slow pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[540px] sm:h-[540px] rounded-full border border-[#0df2a4]/20 animate-rotate-slow-reverse pointer-events-none border-dashed" />
-
-          {/* Radial Center Breathing Light */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[500px] sm:h-[500px] bg-[#0df2a4]/15 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
-
           {/* Floating Luminous Ambient Particles */}
-          <div className="absolute top-12 left-1/4 w-2 h-2 rounded-full bg-[#0df2a4] animate-particle-1 shadow-[0_0_12px_#0df2a4]" />
-          <div className="absolute bottom-16 right-1/4 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-particle-2 shadow-[0_0_14px_#22d3ee]" />
-          <div className="absolute top-1/3 right-12 w-2 h-2 rounded-full bg-emerald-400 animate-particle-3 shadow-[0_0_10px_#34d399]" />
-          <div className="absolute bottom-1/3 left-12 w-2 h-2 rounded-full bg-teal-300 animate-particle-1 shadow-[0_0_10px_#5eead4]" />
-          <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-[#0df2a4] animate-particle-2 shadow-[0_0_10px_#0df2a4]" />
-          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 rounded-full bg-cyan-300 animate-particle-3 shadow-[0_0_10px_#22d3ee]" />
+          <div className="absolute top-12 left-1/4 w-2.5 h-2.5 rounded-full bg-[#0df2a4] animate-particle-1 shadow-[0_0_14px_#0df2a4]" />
+          <div className="absolute bottom-16 right-1/4 w-3 h-3 rounded-full bg-cyan-400 animate-particle-2 shadow-[0_0_16px_#22d3ee]" />
+          <div className="absolute top-1/3 right-12 w-2 h-2 rounded-full bg-emerald-400 animate-particle-3 shadow-[0_0_12px_#34d399]" />
+          <div className="absolute bottom-1/3 left-12 w-2.5 h-2.5 rounded-full bg-teal-300 animate-particle-1 shadow-[0_0_12px_#5eead4]" />
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-[#0df2a4] animate-particle-2 shadow-[0_0_12px_#0df2a4]" />
+          <div className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 rounded-full bg-cyan-300 animate-particle-3 shadow-[0_0_14px_#22d3ee]" />
         </div>
 
         {/* Top ambient lighting */}
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#0df2a4]/10 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
-          {/* Subscription Section Content Wrapper (No enclosing box boundary - Floating directly over full-screen grid) */}
+          {/* Top Pill Header Banner (Exact copy of video's top pill) */}
+          <div className="mb-4 sm:mb-6 px-6 py-2.5 rounded-full bg-[#051722]/90 border border-teal-500/40 text-teal-300 font-semibold text-xs sm:text-sm tracking-wide text-center shadow-[0_0_20px_rgba(13,242,164,0.2)] flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#0df2a4] animate-pulse" />
+            <span>Comprehensive Home Care &amp; Maintenance Packages at Competitive Rates</span>
+          </div>
+
+          {/* Subscription Section Content Wrapper */}
           <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center justify-between gap-6">
-            {/* The Active Plan Card (Exact Matching Layout & Elements from Video 00:00 - 00:04) */}
-            <div className="relative z-10 w-full max-w-2xl mx-auto my-auto bg-[#07131b]/95 border border-[#0df2a4]/70 rounded-3xl p-6 sm:p-8 shadow-[0_0_40px_rgba(13,242,164,0.35)] backdrop-blur-xl space-y-5 overflow-hidden">
-              {/* Diagonal Light Shimmer Animation */}
-              <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-card-shimmer pointer-events-none" />
+            {/* The Active Plan Card Container */}
+            <div className="relative w-full max-w-2xl mx-auto my-auto flex items-center justify-center">
+              {/* Symmetrically Centered Background Frame - Adjusted with equal margins on all 4 sides */}
+              <div className="absolute -inset-3 sm:-inset-4 rounded-[32px] border border-teal-500/30 bg-[#04121b]/60 -z-10 pointer-events-none shadow-[0_0_30px_rgba(13,242,164,0.15)] backdrop-blur-sm" />
 
-              {/* Card Header Row: Red/Coral Start Badge on left + Price on right */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-rose-500 to-red-600 text-white shadow-[0_0_15px_rgba(244,63,94,0.6)] flex items-center gap-1.5 font-mono cursor-default">
-                    <span>➔</span>
-                    <span>START NOW</span>
-                  </span>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#0df2a4]/20 text-[#0df2a4] border border-[#0df2a4]/50 font-mono">
-                    {packagesList[packageIndex].tag}
-                  </span>
-                </div>
+              {/* The Active Plan Card with Smooth Spring Directional Transition */}
+              <AnimatePresence mode="wait" custom={slideDirection}>
+                <motion.div
+                  key={packageIndex}
+                  custom={slideDirection}
+                  initial={{
+                    opacity: 0.7,
+                    x: slideDirection > 0 ? 55 : -55,
+                    scale: 0.98,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    scale: 1,
+                    transition: {
+                      x: { type: 'spring', stiffness: 360, damping: 30 },
+                      opacity: { duration: 0.2 },
+                      scale: { duration: 0.2 },
+                    },
+                  }}
+                  exit={{
+                    opacity: 0.7,
+                    x: slideDirection > 0 ? -55 : 55,
+                    scale: 0.98,
+                    transition: {
+                      x: { type: 'spring', stiffness: 360, damping: 30 },
+                      opacity: { duration: 0.18 },
+                      scale: { duration: 0.18 },
+                    },
+                  }}
+                  className="relative z-10 w-full bg-[#07151e]/95 border-2 border-[#0df2a4]/80 rounded-3xl p-6 sm:p-8 shadow-[0_0_45px_rgba(13,242,164,0.4)] backdrop-blur-xl space-y-5 overflow-hidden"
+                >
+                  {/* Diagonal Light Shimmer Animation */}
+                  <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-card-shimmer pointer-events-none" />
 
-                <div className="text-right">
-                  <span className="text-xs text-slate-400 line-through mr-2 font-mono">
-                    {packagesList[packageIndex].originalPrice}
-                  </span>
-                  <span className="text-3xl sm:text-4xl font-black text-[#0df2a4] font-mono tracking-tight drop-shadow-[0_0_12px_rgba(13,242,164,0.5)]">
-                    {packagesList[packageIndex].price}
-                  </span>
-                  <span className="text-[11px] text-slate-400 block font-medium">
-                    {packagesList[packageIndex].period}
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Main Body: 2 Columns (Content on Left, 3D Pedestal on Right) */}
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                {/* Left Column: Title, Subtitle, Phone Strip, and 2 Stacked Action Buttons */}
-                <div className="flex-1 w-full space-y-4 text-left">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white font-display">
-                      {packagesList[packageIndex].name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-                      {packagesList[packageIndex].subtitle}
-                    </p>
-                  </div>
-
-                  {/* Contact / Inquire strip matching the video's icon & label */}
-                  <a
-                    href="tel:8709107808"
-                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-xl bg-[#041018] border border-teal-500/30 text-xs text-teal-300 hover:text-[#0df2a4] hover:border-[#0df2a4] transition-all"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-[#0df2a4] shrink-0" />
-                    <span>
-                      For inquiry &amp; booking: <strong className="text-white">8709107808</strong>
-                    </span>
-                  </a>
-
-                  {/* Two Stacked Action Buttons (English Only) */}
-                  <div className="space-y-2.5 pt-1">
-                    {/* Top Button: Dark with Cyan/Teal border (View Details) */}
-                    <button
-                      onClick={() => setShowPackageDetails(!showPackageDetails)}
-                      className="w-full py-3 px-4 rounded-xl bg-[#07131b] hover:bg-teal-950/60 border border-[#0df2a4] text-white hover:text-[#0df2a4] font-bold text-xs sm:text-sm transition-all shadow-[0_0_15px_rgba(13,242,164,0.2)] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
-                    >
-                      <Eye className="w-4 h-4 text-[#0df2a4]" />
-                      <span>
-                        {showPackageDetails ? 'Hide Plan Details' : 'View Plan Details & Breakdown'}
+                  {/* Card Header Row: Red/Coral Start Badge on left + Price on right */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-rose-500 to-red-600 text-white shadow-[0_0_15px_rgba(244,63,94,0.7)] flex items-center gap-1.5 font-mono cursor-default">
+                        <span>➔</span>
+                        <span>START NOW</span>
                       </span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-[#0df2a4] transition-transform duration-300 ${
-                          showPackageDetails ? 'rotate-180' : ''
-                        }`}
-                      />
-                    </button>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#0df2a4]/20 text-[#0df2a4] border border-[#0df2a4]/50 font-mono">
+                        {packagesList[packageIndex].tag}
+                      </span>
+                    </div>
 
-                    {/* Bottom Button: Solid Vibrant Neon Green/Teal (Get It Now) */}
-                    <button
-                      onClick={() => onOpenBooking()}
-                      className="w-full py-3.5 px-4 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(13,242,164,0.55)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
-                    >
-                      <span className="w-2 h-2 rounded-full bg-slate-950 animate-ping" />
-                      <span>Get It Now • Subscribe</span>
-                      <ArrowRight className="w-4 h-4 ml-1" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Right Column: 3D Isometric Glowing Platform with Document & Shield (Matches Video) */}
-                <div className="hidden sm:flex flex-col items-center justify-center w-40 shrink-0 relative animate-pedestal-float">
-                  {/* Upward Volumetric Cyan Glow Cone */}
-                  <div className="absolute bottom-6 w-32 h-36 bg-gradient-to-t from-[#0df2a4]/25 to-transparent blur-md rounded-full pointer-events-none" />
-
-                  <svg viewBox="0 0 160 160" className="w-36 h-36 drop-shadow-[0_0_25px_rgba(13,242,164,0.5)]">
-                    <defs>
-                      <linearGradient id="pedestalBase" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#0df2a4" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#063230" stopOpacity="0.9" />
-                      </linearGradient>
-                      <linearGradient id="pedestalTop" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1dfcca" stopOpacity="0.95" />
-                        <stop offset="100%" stopColor="#08544e" stopOpacity="0.9" />
-                      </linearGradient>
-                      <linearGradient id="paperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#f8fafc" />
-                        <stop offset="100%" stopColor="#cbd5e1" />
-                      </linearGradient>
-                      <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#0df2a4" />
-                        <stop offset="100%" stopColor="#059669" />
-                      </linearGradient>
-                    </defs>
-
-                    {/* Glowing Pedestal Shadow */}
-                    <ellipse cx="80" cy="138" rx="55" ry="14" fill="#0df2a4" opacity="0.35" filter="blur(6px)" />
-
-                    {/* Pedestal Bottom Cylinder */}
-                    <path d="M35,120 L35,130 C35,138 125,138 125,130 L125,120 Z" fill="url(#pedestalBase)" />
-
-                    {/* Pedestal Top Ellipse */}
-                    <ellipse cx="80" cy="120" rx="45" ry="12" fill="url(#pedestalTop)" stroke="#0df2a4" strokeWidth="1.5" />
-                    <ellipse cx="80" cy="120" rx="36" ry="8" fill="#072023" stroke="#0df2a4" strokeWidth="1" strokeDasharray="3 3" />
-
-                    {/* Floating Isometric Document Stack */}
-                    {/* Back Paper */}
-                    <path d="M55,62 L105,48 L115,82 L65,96 Z" fill="#94a3b8" opacity="0.8" />
-                    {/* Middle Paper */}
-                    <path d="M50,68 L100,54 L110,92 L60,106 Z" fill="#e2e8f0" />
-                    {/* Front Paper Sheet */}
-                    <path d="M46,74 L96,60 L104,98 L54,112 Z" fill="url(#paperGrad)" stroke="#0df2a4" strokeWidth="1.2" />
-
-                    {/* Document Lines */}
-                    <line x1="58" y1="74" x2="88" y2="65" stroke="#0df2a4" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="56" y1="82" x2="92" y2="72" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="58" y1="89" x2="90" y2="79" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
-                    <line x1="60" y1="96" x2="82" y2="89" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
-
-                    {/* Official Stamp / Seal on Paper */}
-                    <circle cx="86" cy="94" r="7" fill="none" stroke="#0df2a4" strokeWidth="1.5" />
-                    <path d="M83,94 L85,96 L89,92" fill="none" stroke="#0df2a4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-
-                    {/* Floating 3D VIP Shield */}
-                    <g transform="translate(68, 22)">
-                      <path d="M12,2 L22,6 L22,15 C22,22 12,28 12,28 C12,28 2,22 2,15 L2,6 Z" fill="url(#shieldGrad)" stroke="#ffffff" strokeWidth="1.2" filter="drop-shadow(0 0 6px rgba(13,242,164,0.8))" />
-                      <path d="M7,14 L10,17 L17,10" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </g>
-
-                    {/* Floating Sparkles */}
-                    <circle cx="36" cy="50" r="1.5" fill="#0df2a4" />
-                    <circle cx="124" cy="65" r="2" fill="#0df2a4" />
-                    <circle cx="118" cy="38" r="1.5" fill="#22d3ee" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Expandable Features Accordion (Revealed on clicking "View Plan Details") */}
-              {showPackageDetails && (
-                <div className="border-t border-teal-900/60 pt-4 space-y-3 animate-fadeIn">
-                  <div className="flex items-center justify-between text-xs text-[#0df2a4] font-bold">
-                    <span>What&apos;s Included in {packagesList[packageIndex].name}:</span>
-                    <span className="text-slate-400 font-normal">Official Coverage</span>
+                    <div className="text-right">
+                      <span className="text-xs text-slate-400 line-through mr-2 font-mono">
+                        {packagesList[packageIndex].originalPrice}
+                      </span>
+                      <span className="text-3xl sm:text-4xl font-black text-[#0df2a4] font-mono tracking-tight drop-shadow-[0_0_12px_rgba(13,242,164,0.5)]">
+                        {packagesList[packageIndex].price}
+                      </span>
+                      <span className="text-[11px] text-slate-400 block font-medium">
+                        {packagesList[packageIndex].period}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                    {packagesList[packageIndex].detailedFeatures.map((feat, fidx) => (
-                      <div
-                        key={fidx}
-                        className="p-2.5 rounded-xl bg-[#030c12] border border-teal-500/25 flex items-start gap-2.5"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-[#0df2a4]/15 border border-[#0df2a4]/40 flex items-center justify-center text-[#0df2a4] shrink-0 mt-0.5">
-                          <CheckCircle2 className="w-3.5 h-3.5" />
-                        </div>
-                        <div>
-                          <span className="font-bold text-slate-100 block">{feat.title}</span>
-                          <span className="text-[11px] text-slate-400 block mt-0.5">{feat.desc}</span>
-                        </div>
+                  {/* Card Main Body: 2 Columns (Content on Left, 3D Pedestal on Right - Exact Video Match) */}
+                  <div className="flex flex-col sm:flex-row items-center gap-6">
+                    {/* Left Column: Title, Subtitle, Phone Strip, and 2 Stacked Action Buttons */}
+                    <div className="flex-1 w-full space-y-4 text-left">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl font-black text-white font-display">
+                          {packagesList[packageIndex].name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                          {packagesList[packageIndex].subtitle}
+                        </p>
                       </div>
-                    ))}
+
+                      {/* Contact / Inquire strip matching the video's icon & label */}
+                      <a
+                        href="tel:8709107808"
+                        className="inline-flex items-center gap-2 py-2 px-3.5 rounded-xl bg-[#041018] border border-teal-500/30 text-xs text-teal-300 hover:text-[#0df2a4] hover:border-[#0df2a4] transition-all"
+                      >
+                        <Phone className="w-3.5 h-3.5 text-[#0df2a4] shrink-0" />
+                        <span>
+                          For inquiry &amp; booking: <strong className="text-white">8709107808</strong>
+                        </span>
+                      </a>
+
+                      {/* Two Stacked Action Buttons (Exact Video Match) */}
+                      <div className="space-y-2.5 pt-1">
+                        {/* Top Button: Dark with Cyan/Teal border (View Details) */}
+                        <button
+                          onClick={() => setShowPackageDetails(!showPackageDetails)}
+                          className="w-full py-3 px-4 rounded-xl bg-[#07131b] hover:bg-teal-950/60 border border-[#0df2a4] text-white hover:text-[#0df2a4] font-bold text-xs sm:text-sm transition-all shadow-[0_0_15px_rgba(13,242,164,0.2)] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                        >
+                          <Eye className="w-4 h-4 text-[#0df2a4]" />
+                          <span>
+                            {showPackageDetails ? 'Hide Plan Details' : 'View Plan Details & Breakdown'}
+                          </span>
+                          <ChevronDown
+                            className={`w-4 h-4 text-[#0df2a4] transition-transform duration-300 ${
+                              showPackageDetails ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+
+                        {/* Bottom Button: Solid Vibrant Neon Green/Teal (Get It Now) */}
+                        <button
+                          onClick={() => onOpenBooking()}
+                          className="w-full py-3.5 px-4 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(13,242,164,0.55)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                        >
+                          <span className="w-2 h-2 rounded-full bg-slate-950 animate-ping" />
+                          <span>Get It Now • Subscribe</span>
+                          <ArrowRight className="w-4 h-4 ml-1" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Right Column: 3D Isometric Glowing Platform with Document & Shield (Exact Video Match) */}
+                    <div className="hidden sm:flex flex-col items-center justify-center w-40 shrink-0 relative animate-pedestal-float">
+                      {/* Upward Volumetric Cyan Glow Cone */}
+                      <div className="absolute bottom-6 w-32 h-36 bg-gradient-to-t from-[#0df2a4]/25 to-transparent blur-md rounded-full pointer-events-none" />
+
+                      <svg viewBox="0 0 160 160" className="w-36 h-36 drop-shadow-[0_0_25px_rgba(13,242,164,0.5)]">
+                        <defs>
+                          <linearGradient id="pedestalBase" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#0df2a4" stopOpacity="0.8" />
+                            <stop offset="100%" stopColor="#063230" stopOpacity="0.9" />
+                          </linearGradient>
+                          <linearGradient id="pedestalTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#1dfcca" stopOpacity="0.95" />
+                            <stop offset="100%" stopColor="#08544e" stopOpacity="0.9" />
+                          </linearGradient>
+                          <linearGradient id="paperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#f8fafc" />
+                            <stop offset="100%" stopColor="#cbd5e1" />
+                          </linearGradient>
+                          <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#0df2a4" />
+                            <stop offset="100%" stopColor="#059669" />
+                          </linearGradient>
+                        </defs>
+
+                        {/* Glowing Pedestal Shadow */}
+                        <ellipse cx="80" cy="138" rx="55" ry="14" fill="#0df2a4" opacity="0.35" filter="blur(6px)" />
+
+                        {/* Pedestal Bottom Cylinder */}
+                        <path d="M35,120 L35,130 C35,138 125,138 125,130 L125,120 Z" fill="url(#pedestalBase)" />
+
+                        {/* Pedestal Top Ellipse */}
+                        <ellipse cx="80" cy="120" rx="45" ry="12" fill="url(#pedestalTop)" stroke="#0df2a4" strokeWidth="1.5" />
+                        <ellipse cx="80" cy="120" rx="36" ry="8" fill="#072023" stroke="#0df2a4" strokeWidth="1" strokeDasharray="3 3" />
+
+                        {/* Floating Isometric Document Stack */}
+                        {/* Back Paper */}
+                        <path d="M55,62 L105,48 L115,82 L65,96 Z" fill="#94a3b8" opacity="0.8" />
+                        {/* Middle Paper */}
+                        <path d="M50,68 L100,54 L110,92 L60,106 Z" fill="#e2e8f0" />
+                        {/* Front Paper Sheet */}
+                        <path d="M46,74 L96,60 L104,98 L54,112 Z" fill="url(#paperGrad)" stroke="#0df2a4" strokeWidth="1.2" />
+
+                        {/* Document Lines */}
+                        <line x1="58" y1="74" x2="88" y2="65" stroke="#0df2a4" strokeWidth="2.5" strokeLinecap="round" />
+                        <line x1="56" y1="82" x2="92" y2="72" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
+                        <line x1="58" y1="89" x2="90" y2="79" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
+                        <line x1="60" y1="96" x2="82" y2="89" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" />
+
+                        {/* Official Stamp / Seal on Paper */}
+                        <circle cx="86" cy="94" r="7" fill="none" stroke="#0df2a4" strokeWidth="1.5" />
+                        <path d="M83,94 L85,96 L89,92" fill="none" stroke="#0df2a4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+
+                        {/* Floating 3D VIP Shield */}
+                        <g transform="translate(68, 22)">
+                          <path d="M12,2 L22,6 L22,15 C22,22 12,28 12,28 C12,28 2,22 2,15 L2,6 Z" fill="url(#shieldGrad)" stroke="#ffffff" strokeWidth="1.2" filter="drop-shadow(0 0 6px rgba(13,242,164,0.8))" />
+                          <path d="M7,14 L10,17 L17,10" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </g>
+
+                        {/* Floating Sparkles */}
+                        <circle cx="36" cy="50" r="1.5" fill="#0df2a4" />
+                        <circle cx="124" cy="65" r="2" fill="#0df2a4" />
+                        <circle cx="118" cy="38" r="1.5" fill="#22d3ee" />
+                      </svg>
+                    </div>
                   </div>
 
-                  <div className="py-2 px-3 rounded-xl bg-[#03090e] border border-teal-500/30 flex items-center justify-between text-[11px] text-slate-300">
-                    <span className="flex items-center gap-1.5 text-teal-300 font-semibold">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#0df2a4]" />
-                      <span>7-Day 100% Money-Back Guarantee</span>
-                    </span>
-                    <span className="text-slate-500">•</span>
-                    <span className="text-slate-300 font-medium">Cancel Anytime</span>
-                  </div>
-                </div>
-              )}
+                  {/* Expandable Features Accordion (Revealed on clicking "View Plan Details") */}
+                  {showPackageDetails && (
+                    <div className="border-t border-teal-900/60 pt-4 space-y-3 animate-fadeIn">
+                      <div className="flex items-center justify-between text-xs text-[#0df2a4] font-bold">
+                        <span>What&apos;s Included in {packagesList[packageIndex].name}:</span>
+                        <span className="text-slate-400 font-normal">Official Coverage</span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                        {packagesList[packageIndex].detailedFeatures.map((feat, fidx) => (
+                          <div
+                            key={fidx}
+                            className="p-2.5 rounded-xl bg-[#030c12] border border-teal-500/25 flex items-start gap-2.5"
+                          >
+                            <div className="w-5 h-5 rounded-full bg-[#0df2a4]/15 border border-[#0df2a4]/40 flex items-center justify-center text-[#0df2a4] shrink-0 mt-0.5">
+                              <CheckCircle2 className="w-3.5 h-3.5" />
+                            </div>
+                            <div>
+                              <span className="font-bold text-slate-100 block">{feat.title}</span>
+                              <span className="text-[11px] text-slate-400 block mt-0.5">{feat.desc}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="py-2 px-3 rounded-xl bg-[#03090e] border border-teal-500/30 flex items-center justify-between text-[11px] text-slate-300">
+                        <span className="flex items-center gap-1.5 text-teal-300 font-semibold">
+                          <ShieldCheck className="w-3.5 h-3.5 text-[#0df2a4]" />
+                          <span>7-Day 100% Money-Back Guarantee</span>
+                        </span>
+                        <span className="text-slate-500">•</span>
+                        <span className="text-slate-300 font-medium">Cancel Anytime</span>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Exact Controller from User Screenshot: Prev, Play/Pause, Next + Dots + Display Duration */}
@@ -1138,7 +1192,7 @@ export function HomePage({
               <div className="flex items-center justify-center gap-3">
                 {/* Previous Button */}
                 <button
-                  onClick={() => setPackageIndex((prev) => (prev > 0 ? prev - 1 : 2))}
+                  onClick={handlePrevPackage}
                   className="w-11 h-11 rounded-full bg-[#1c2833]/90 border border-slate-700/70 text-slate-300 hover:text-white hover:border-teal-500/60 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md"
                   title="Previous"
                   aria-label="Previous"
@@ -1162,7 +1216,7 @@ export function HomePage({
 
                 {/* Next Button */}
                 <button
-                  onClick={() => setPackageIndex((prev) => (prev + 1) % 3)}
+                  onClick={handleNextPackage}
                   className="w-11 h-11 rounded-full bg-[#1c2833]/90 border border-slate-700/70 text-slate-300 hover:text-white hover:border-teal-500/60 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md"
                   title="Next"
                   aria-label="Next"
@@ -1178,7 +1232,7 @@ export function HomePage({
                   return (
                     <button
                       key={idx}
-                      onClick={() => setPackageIndex(idx)}
+                      onClick={() => handleSelectPackage(idx)}
                       className="cursor-pointer transition-all p-1"
                       aria-label={`Select item ${idx + 1}`}
                     >
@@ -1280,9 +1334,9 @@ export function HomePage({
               value={faqSearch}
               onChange={(e) => setFaqSearch(e.target.value)}
               placeholder="Search questions (e.g. payment, arrival time, pricing)..."
-              className="w-full pl-10 pr-4 py-3 bg-[#08151f] border border-teal-500/30 focus:border-[#0df2a4] focus:outline-none rounded-2xl text-xs sm:text-sm text-white placeholder-slate-400 transition-all shadow-inner"
+              className="w-full pl-10 pr-4 py-3 bg-[#111827] border border-slate-700/80 focus:border-emerald-400 focus:outline-none rounded-2xl text-xs sm:text-sm text-white placeholder-slate-400 transition-all shadow-inner"
             />
-            <Search className="w-4 h-4 text-[#0df2a4] absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-emerald-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           </div>
 
           {/* 5 Accordion Questions */}
@@ -1290,7 +1344,7 @@ export function HomePage({
             {filteredFaqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-[#08151f] border border-teal-500/25 hover:border-teal-500/50 rounded-2xl overflow-hidden transition-all shadow-md"
+                className="bg-[#111827] border border-slate-800 hover:border-slate-700 rounded-2xl overflow-hidden transition-all shadow-md"
               >
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
@@ -1300,8 +1354,8 @@ export function HomePage({
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full bg-[#050c12] border border-teal-500/30 flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                      expandedFaq === idx ? 'rotate-180 border-[#0df2a4] text-[#0df2a4]' : 'text-slate-400'
+                    className={`w-7 h-7 rounded-full bg-[#0b0f19] border border-slate-700 flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      expandedFaq === idx ? 'rotate-180 border-emerald-400 text-emerald-400' : 'text-slate-400'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -1309,7 +1363,7 @@ export function HomePage({
                 </button>
 
                 {expandedFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-teal-900/40">
+                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800">
                     {faq.a}
                   </div>
                 )}
@@ -1322,10 +1376,10 @@ export function HomePage({
       {/* ========================================================================= */}
       {/* 7. INSTANT DISPATCH & CONTACT DESK (Frames 00:09 - 00:10, 00:19 - 00:21) */}
       {/* ========================================================================= */}
-      <section className="py-20 border-b border-teal-500/20 relative" id="contact-section">
+      <section className="py-20 border-b border-slate-800/80 relative" id="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3 mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold tracking-wider bg-[#0df2a4]/15 text-[#0df2a4] border border-[#0df2a4]/30 uppercase font-mono">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase font-mono">
               <Sparkles className="w-3.5 h-3.5" />
               <span>DIRECT DISPATCH DESK</span>
             </div>
@@ -1341,7 +1395,7 @@ export function HomePage({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* LEFT COLUMN: Rapid Response Dispatch Info (Frames 00:09 - 00:10) */}
-            <div className="lg:col-span-5 rounded-3xl bg-[#08151f] border border-teal-500/40 p-6 sm:p-8 flex flex-col justify-between shadow-2xl space-y-6">
+            <div className="lg:col-span-5 rounded-3xl bg-gradient-to-b from-[#111827] via-[#0f172a] to-[#0b0f19] border border-slate-800/80 p-6 sm:p-8 flex flex-col justify-between shadow-2xl space-y-6">
               <div className="space-y-4">
                 <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40 font-mono inline-block">
                   RAPID RESPONSE DISPATCH
@@ -1360,20 +1414,20 @@ export function HomePage({
                 {/* Toll Free Helpline Box */}
                 <a
                   href="tel:8709107808"
-                  className="p-4 rounded-2xl bg-[#061017] border border-teal-500/30 hover:border-[#0df2a4] transition-all flex items-center justify-between group block"
+                  className="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800 hover:border-emerald-400/60 transition-all flex items-center justify-between group block shadow-md"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-xl bg-[#0df2a4]/15 border border-[#0df2a4]/30 flex items-center justify-center text-[#0df2a4]">
+                    <div className="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                       <Phone className="w-5 h-5 group-hover:animate-bounce" />
                     </div>
                     <div>
                       <span className="text-[10px] uppercase font-bold text-slate-400 block">
                         Toll-Free Helpline
                       </span>
-                      <span className="text-lg font-extrabold text-white font-mono group-hover:text-[#0df2a4] transition-colors">8709107808</span>
+                      <span className="text-lg font-extrabold text-white font-mono group-hover:text-emerald-400 transition-colors">8709107808</span>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-[#0df2a4] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
                 </a>
 
                 {/* WhatsApp Admin Desk Box */}
@@ -1381,7 +1435,7 @@ export function HomePage({
                   href="https://wa.me/918709107808"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-4 rounded-2xl bg-[#061017] border border-emerald-500/30 hover:border-emerald-400 transition-all flex items-center justify-between group block"
+                  className="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800 hover:border-emerald-400/60 transition-all flex items-center justify-between group block shadow-md"
                 >
                   <div className="flex items-center gap-3.5">
                     <div className="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
@@ -1401,25 +1455,25 @@ export function HomePage({
               </div>
 
               {/* Status Pills */}
-              <div className="flex items-center gap-3 text-xs text-slate-300 pt-2 border-t border-teal-900/40">
+              <div className="flex items-center gap-3 text-xs text-slate-300 pt-2 border-t border-slate-800">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span>24/7 Booking Support</span>
                 </span>
                 <span className="text-slate-600">•</span>
-                <span className="text-teal-300 font-medium">Patna District (All Towns &amp; Villages)</span>
+                <span className="text-emerald-300 font-medium">Patna District (All Towns &amp; Villages)</span>
               </div>
             </div>
 
             {/* RIGHT COLUMN: Dispatch Request Form (Frames 00:09 - 00:10) */}
-            <div className="lg:col-span-7 rounded-3xl bg-[#08151f] border border-teal-500/40 p-6 sm:p-8 shadow-2xl">
+            <div className="lg:col-span-7 rounded-3xl bg-gradient-to-b from-[#111827] via-[#0f172a] to-[#0b0f19] border border-slate-800/80 p-6 sm:p-8 shadow-2xl">
               <h3 className="text-xl font-extrabold text-white font-display mb-5 flex items-center gap-2">
-                <Send className="w-5 h-5 text-[#0df2a4]" />
+                <Send className="w-5 h-5 text-emerald-400" />
                 <span>Instant Dispatch Form</span>
               </h3>
 
               {dispatchSubmitted ? (
-                <div className="p-6 bg-[#0df2a4]/15 border border-[#0df2a4]/50 rounded-2xl text-center space-y-3 text-[#0df2a4] my-auto">
+                <div className="p-6 bg-emerald-500/15 border border-emerald-500/40 rounded-2xl text-center space-y-3 text-emerald-400 my-auto">
                   <CheckCircle2 className="w-12 h-12 mx-auto" />
                   <h4 className="font-bold text-lg text-white">
                     Dispatch Request Submitted!
@@ -1434,7 +1488,7 @@ export function HomePage({
                       )}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold text-xs shadow-lg"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Confirm via WhatsApp Directly</span>
@@ -1452,7 +1506,7 @@ export function HomePage({
                         value={dispatchForm.name}
                         onChange={(e) => setDispatchForm({ ...dispatchForm, name: e.target.value })}
                         placeholder="Enter your name"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#050c12] border border-teal-500/30 text-white placeholder-slate-500 focus:border-[#0df2a4] focus:outline-none"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#090d16] border border-slate-700/80 text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none"
                       />
                     </div>
 
@@ -1464,7 +1518,7 @@ export function HomePage({
                         value={dispatchForm.phone}
                         onChange={(e) => setDispatchForm({ ...dispatchForm, phone: e.target.value })}
                         placeholder="09782 41258"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#050c12] border border-teal-500/30 text-white placeholder-slate-500 focus:border-[#0df2a4] focus:outline-none font-mono"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#090d16] border border-slate-700/80 text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none font-mono"
                       />
                     </div>
                   </div>
@@ -1475,7 +1529,7 @@ export function HomePage({
                       <select
                         value={dispatchForm.service}
                         onChange={(e) => setDispatchForm({ ...dispatchForm, service: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#050c12] border border-teal-500/30 text-white focus:border-[#0df2a4] focus:outline-none cursor-pointer"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#090d16] border border-slate-700/80 text-white focus:border-emerald-400 focus:outline-none cursor-pointer"
                       >
                         <option value="Electrician">Electrician &amp; Wiring</option>
                         <option value="Plumber">Plumber &amp; Pipe Leakage</option>
@@ -1496,7 +1550,7 @@ export function HomePage({
                         value={dispatchForm.locality}
                         onChange={(e) => setDispatchForm({ ...dispatchForm, locality: e.target.value })}
                         placeholder="e.g. Boring Road, Bihta, Naubatpur, Patna"
-                        className="w-full px-4 py-2.5 rounded-xl bg-[#050c12] border border-teal-500/30 text-white placeholder-slate-500 focus:border-[#0df2a4] focus:outline-none"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#090d16] border border-slate-700/80 text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -1508,13 +1562,13 @@ export function HomePage({
                       value={dispatchForm.issue}
                       onChange={(e) => setDispatchForm({ ...dispatchForm, issue: e.target.value })}
                       placeholder="e.g. AC not cooling, wire sparking, tap leaking..."
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#050c12] border border-teal-500/30 text-white placeholder-slate-500 focus:border-[#0df2a4] focus:outline-none resize-none"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#090d16] border border-slate-700/80 text-white placeholder-slate-500 focus:border-emerald-400 focus:outline-none resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(13,242,164,0.45)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-emerald-400 text-slate-950 font-black text-sm shadow-[0_2px_16px_rgba(16,185,129,0.35)] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Instant Dispatch Request</span>
@@ -1529,7 +1583,7 @@ export function HomePage({
       {/* ========================================================================= */}
       {/* 8. SECURE & FLEXIBLE PAYMENT METHODS STRIP (Frames 00:10 - 00:11, 00:18) */}
       {/* ========================================================================= */}
-      <section className="py-12 border-b border-teal-500/20 bg-[#050b10]">
+      <section className="py-12 border-b border-slate-800/80 bg-[#080c14]/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-3">
             <h3 className="text-sm font-extrabold text-white uppercase tracking-wider font-display flex items-center justify-center gap-2">

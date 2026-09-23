@@ -67,9 +67,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         'Once the technician concludes the service, test the equipment and workmanship thoroughly in their presence:\n• AC Service/Repair: Check cooling performance, airflow, and verify zero refrigerant gas leaks.\n• Plumbing Work: Inspect water pressure, shutoff valves, and check pipe joints for any leaks.\n• Electrical Work: Test all switches, wiring, circuit breakers, and verify stable current.\n• Home Appliances: Run a live test cycle on washing machines, refrigerators, microwaves, or RO water purifiers.',
       icon: CheckCircle2,
       badge: 'Live Testing First',
-      color: 'from-[#0df2a4]/20 to-[#0df2a4]/5',
-      borderColor: 'border-[#0df2a4]/30',
-      textColor: 'text-[#0df2a4]',
+      color: 'from-blue-500/10 to-transparent',
+      borderColor: 'border-blue-500/30',
+      textColor: 'text-blue-400',
     },
     {
       number: '03',
@@ -79,9 +79,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         'Never pay unrecorded verbal charges or arbitrary surcharges. When the service is complete, you will receive an official digital invoice via SMS and in-app. If replacement spare parts were required, ensure they are registered on the official bill with MRP confirmation.',
       icon: ShieldCheck,
       badge: 'System Invoice Only',
-      color: 'from-sky-500/20 to-sky-600/5',
-      borderColor: 'border-sky-500/30',
-      textColor: 'text-sky-400',
+      color: 'from-indigo-500/10 to-transparent',
+      borderColor: 'border-indigo-500/30',
+      textColor: 'text-indigo-400',
     },
     {
       number: '04',
@@ -91,9 +91,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         `Customers can choose to pay the service partner directly in physical cash or scan our verified SevaConnect UPI QR code (${effectiveUpiId}) using Google Pay, PhonePe, Paytm, BHIM, or Net Banking. Both payment options provide an instant official digital receipt.`,
       icon: QrCode,
       badge: 'Cash or Digital QR',
-      color: 'from-teal-500/20 to-teal-600/5',
-      borderColor: 'border-teal-500/30',
-      textColor: 'text-teal-300',
+      color: 'from-blue-500/10 to-transparent',
+      borderColor: 'border-blue-500/30',
+      textColor: 'text-blue-300',
     },
     {
       number: '05',
@@ -103,9 +103,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         'If the repaired appliance or fixture exhibits the same malfunction within 7 days of service completion, SevaConnect will dispatch the technician or a senior supervisor for a free warranty revisit with zero labor charges.',
       icon: Award,
       badge: '7-Day Protection',
-      color: 'from-emerald-500/20 to-emerald-600/5',
-      borderColor: 'border-emerald-500/30',
-      textColor: 'text-emerald-400',
+      color: 'from-amber-500/10 to-transparent',
+      borderColor: 'border-amber-500/30',
+      textColor: 'text-amber-400',
     },
     {
       number: '06',
@@ -157,14 +157,14 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
   ];
 
   return (
-    <div className="min-h-screen bg-[#060e15] text-slate-100 py-10 px-4 sm:px-6 lg:px-8 selection:bg-[#0df2a4] selection:text-slate-950">
+    <div className="min-h-screen bg-transparent text-slate-100 py-10 px-4 sm:px-6 lg:px-8 selection:bg-blue-500 selection:text-white">
       <div className="max-w-5xl mx-auto space-y-10">
 
         {/* Top Back Navigation Bar */}
-        <div className="flex items-center justify-between border-b border-teal-500/20 pb-5">
+        <div className="flex items-center justify-between border-b border-slate-800 pb-5">
           <button
             onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#091824] hover:bg-[#0e2437] border border-teal-500/30 text-teal-300 hover:text-white text-xs font-bold transition-all cursor-pointer shadow-sm group"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1e293b] hover:bg-[#334155] border border-slate-700 text-blue-400 hover:text-white text-xs font-bold transition-all cursor-pointer shadow-sm group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to Home</span>
@@ -173,14 +173,14 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
           <div className="flex items-center gap-2">
             <button
               onClick={() => setUpiModalOpen(true)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 border border-[#0df2a4]/40 text-[#0df2a4] text-xs font-bold transition-all cursor-pointer shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/40 text-blue-400 text-xs font-bold transition-all cursor-pointer shadow-sm"
             >
               <QrCode className="w-3.5 h-3.5" />
               <span>Scan UPI QR Code</span>
             </button>
             <button
               onClick={() => onOpenBooking()}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 text-xs font-black transition-all cursor-pointer shadow-[0_0_15px_rgba(13,242,164,0.3)]"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-black transition-all cursor-pointer shadow-[0_4px_16px_rgba(37,99,235,0.4)]"
             >
               <span>Book Service</span>
             </button>
@@ -188,19 +188,19 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         </div>
 
         {/* Hero Section */}
-        <div className="relative rounded-3xl bg-gradient-to-br from-[#091b29] via-[#081824] to-[#050f17] border-2 border-amber-500/40 p-8 sm:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.6)] overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0df2a4]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] border border-blue-500/30 p-8 sm:p-12 shadow-2xl overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 space-y-4 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
               <span>Official Customer Protection Policy</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
               Cash After Satisfaction <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-[#0df2a4]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-200 to-amber-400">
                 Work Done, 100% Satisfaction — Only Then Pay!
               </span>
             </h1>
@@ -212,23 +212,23 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
 
             {/* Quick Metrics Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-              <div className="p-3.5 rounded-2xl bg-[#06111a]/80 border border-amber-500/20 text-center">
+              <div className="p-3.5 rounded-2xl bg-[#0f172a] border border-slate-800 text-center">
                 <div className="text-xl font-black text-amber-400">₹0</div>
                 <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mt-0.5">Advance Required</div>
                 <div className="text-[10px] text-slate-500">Zero Upfront Fees</div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-[#06111a]/80 border border-teal-500/20 text-center">
-                <div className="text-xl font-black text-[#0df2a4]">100%</div>
+              <div className="p-3.5 rounded-2xl bg-[#0f172a] border border-slate-800 text-center">
+                <div className="text-xl font-black text-blue-400">100%</div>
                 <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mt-0.5">Live Inspection</div>
                 <div className="text-[10px] text-slate-500">Verify Before Paying</div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-[#06111a]/80 border border-sky-500/20 text-center">
-                <div className="text-xl font-black text-sky-400">7 Days</div>
+              <div className="p-3.5 rounded-2xl bg-[#0f172a] border border-slate-800 text-center">
+                <div className="text-xl font-black text-indigo-400">7 Days</div>
                 <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mt-0.5">Labor Warranty</div>
                 <div className="text-[10px] text-slate-500">Free Revisit Protection</div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-[#06111a]/80 border border-emerald-500/20 text-center">
-                <div className="text-xl font-black text-emerald-400">Cash / UPI</div>
+              <div className="p-3.5 rounded-2xl bg-[#0f172a] border border-slate-800 text-center">
+                <div className="text-xl font-black text-blue-400">Cash / UPI</div>
                 <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider mt-0.5">Payment Modes</div>
                 <div className="text-[10px] text-slate-500">Cash or Digital QR</div>
               </div>
@@ -238,9 +238,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
 
         {/* Note Points */}
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-teal-500/20 pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-800 pb-4">
             <div>
-              <span className="text-xs font-bold text-[#0df2a4] uppercase tracking-wider">Transparency Guidelines</span>
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">Transparency Guidelines</span>
               <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-2">
                 <span>Key Policy Note Points</span>
               </h2>
@@ -256,10 +256,10 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
               return (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl bg-gradient-to-r ${item.color} to-[#07131e]/90 border ${item.borderColor} shadow-lg transition-all hover:translate-y-[-2px] hover:shadow-xl`}
+                  className={`p-6 rounded-2xl bg-[#0f172a] border ${item.borderColor} shadow-lg transition-all hover:translate-y-[-2px] hover:shadow-xl`}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#06111a] border border-slate-700/50 flex flex-col items-center justify-center shrink-0 shadow-md">
+                    <div className="w-12 h-12 rounded-2xl bg-[#1e293b] border border-slate-700/60 flex flex-col items-center justify-center shrink-0 shadow-md">
                       <span className="text-[10px] font-mono font-bold text-slate-400">NOTE</span>
                       <span className={`text-sm font-black ${item.textColor}`}>{item.number}</span>
                     </div>
@@ -270,12 +270,12 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
                           <Icon className={`w-5 h-5 ${item.textColor}`} />
                           <span>{item.title}</span>
                         </h3>
-                        <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border bg-[#06111a] ${item.borderColor} ${item.textColor}`}>
+                        <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border bg-[#1e293b] ${item.borderColor} ${item.textColor}`}>
                           {item.badge}
                         </span>
                       </div>
 
-                      <div className={`text-xs font-semibold ${item.textColor} bg-[#06111a]/60 px-3 py-1.5 rounded-xl border border-white/5`}>
+                      <div className={`text-xs font-semibold ${item.textColor} bg-[#1e293b]/80 px-3 py-1.5 rounded-xl border border-white/5`}>
                         👉 {item.highlight}
                       </div>
 
@@ -291,11 +291,11 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         </div>
 
         {/* UPI QR & Payment Mode Showcase Card */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#091b29] via-[#071723] to-[#040e16] border border-teal-500/30 p-6 sm:p-8 shadow-xl">
+        <div className="rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] border border-blue-500/30 p-6 sm:p-8 shadow-xl">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="space-y-3 flex-1 text-center lg:text-left">
-              <span className="text-xs font-bold text-[#0df2a4] uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1.5">
-                <QrCode className="w-4 h-4 text-[#0df2a4]" />
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-1.5">
+                <QrCode className="w-4 h-4 text-blue-400" />
                 <span>Instant Cashless &amp; Cash Payment Options</span>
               </span>
               <h3 className="text-2xl font-black text-white">
@@ -306,18 +306,18 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
               </p>
 
               {/* UPI ID Copy Pill */}
-              <div className="inline-flex items-center gap-2 bg-[#06111a] border border-teal-500/40 rounded-xl p-2 pr-3 max-w-full">
-                <span className="w-2 h-2 rounded-full bg-[#0df2a4] animate-pulse ml-1" />
+              <div className="inline-flex items-center gap-2 bg-[#1e293b] border border-slate-700 rounded-xl p-2 pr-3 max-w-full">
+                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse ml-1" />
                 <span className="text-[11px] font-bold text-slate-400">Official UPI ID:</span>
-                <span className="text-xs font-mono font-bold text-[#0df2a4] select-all truncate">
+                <span className="text-xs font-mono font-bold text-blue-400 select-all truncate">
                   {effectiveUpiId}
                 </span>
                 <button
                   onClick={handleCopyUpi}
-                  className="p-1.5 rounded-lg bg-teal-500/20 hover:bg-teal-500/40 text-teal-300 transition-colors cursor-pointer ml-1"
+                  className="p-1.5 rounded-lg bg-blue-500/20 hover:bg-blue-500/40 text-blue-300 transition-colors cursor-pointer ml-1"
                   title="Copy UPI ID"
                 >
-                  {copiedUpi ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedUpi ? <Check className="w-3.5 h-3.5 text-blue-400" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
 
@@ -330,7 +330,7 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full sm:w-auto">
               <button
                 onClick={() => setUpiModalOpen(true)}
-                className="px-6 py-3.5 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(13,242,164,0.3)] transition-all cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all cursor-pointer"
               >
                 <QrCode className="w-4 h-4" />
                 <span>Open &amp; Scan UPI QR Code</span>
@@ -338,7 +338,7 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
 
               <button
                 onClick={() => onOpenBooking()}
-                className="px-6 py-3.5 rounded-xl bg-[#0a1b26] hover:bg-[#0f2838] border border-teal-500/40 text-teal-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-[#1e293b] hover:bg-[#334155] border border-slate-700 text-blue-300 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <span>Book a Service Now</span>
               </button>
@@ -347,9 +347,9 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         </div>
 
         {/* FAQs Section */}
-        <div className="rounded-3xl bg-[#07141f] border border-teal-500/20 p-6 sm:p-8 space-y-4">
-          <div className="border-b border-teal-500/20 pb-4">
-            <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">Frequently Asked Questions</span>
+        <div className="rounded-3xl bg-[#0f172a] border border-slate-800 p-6 sm:p-8 space-y-4">
+          <div className="border-b border-slate-800 pb-4">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">Frequently Asked Questions</span>
             <h3 className="text-xl font-bold text-white mt-1">Customer FAQs &amp; Clarity Guidelines</h3>
           </div>
 
@@ -357,25 +357,25 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="rounded-2xl bg-[#061017] border border-teal-500/20 overflow-hidden transition-all"
+                className="rounded-2xl bg-[#1e293b] border border-slate-800 overflow-hidden transition-all"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full p-4 text-left font-bold text-sm text-white flex items-center justify-between gap-3 hover:bg-[#091824] transition-colors cursor-pointer"
+                  className="w-full p-4 text-left font-bold text-sm text-white flex items-center justify-between gap-3 hover:bg-[#334155]/50 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-2">
                     <HelpCircle className="w-4 h-4 text-amber-400 shrink-0" />
                     <span>{faq.q}</span>
                   </span>
                   {openFaq === index ? (
-                    <ChevronUp className="w-4 h-4 text-[#0df2a4] shrink-0" />
+                    <ChevronUp className="w-4 h-4 text-blue-400 shrink-0" />
                   ) : (
                     <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
                   )}
                 </button>
                 {openFaq === index && (
-                  <div className="p-4 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-teal-500/10 bg-[#050d13]">
+                  <div className="p-4 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800 bg-[#0f172a]">
                     {faq.a}
                   </div>
                 )}
@@ -385,10 +385,10 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
         </div>
 
         {/* Emergency Admin Helpline Support Bar */}
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-teal-950/80 via-slate-900 to-teal-950/80 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-950/80 via-slate-900 to-blue-950/80 border border-blue-500/30 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#0df2a4]/15 border border-[#0df2a4]/30 flex items-center justify-center shrink-0">
-              <Phone className="w-6 h-6 text-[#0df2a4]" />
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shrink-0">
+              <Phone className="w-6 h-6 text-blue-400" />
             </div>
             <div>
               <h4 className="font-bold text-white text-sm">Need Help or Facing Any Issue with Service Partner?</h4>
@@ -401,7 +401,7 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
           <div className="flex items-center gap-2.5">
             <a
               href="tel:8709107808"
-              className="px-4 py-2 rounded-xl bg-[#0df2a4] hover:bg-[#00f5c4] text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>Call Helpline</span>
@@ -410,7 +410,7 @@ export function CashSatisfactionPage({ onNavigate, onOpenBooking }: CashSatisfac
               href="https://wa.me/918709107808"
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>WhatsApp</span>

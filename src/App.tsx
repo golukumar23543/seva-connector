@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from './context/ThemeContext.tsx';
 import { AuthProvider, useAuth } from './context/AuthContext.tsx';
 import { ToastProvider, useToast } from './context/ToastContext.tsx';
 import { MerchantConfigProvider } from './context/MerchantConfigContext.tsx';
@@ -127,7 +128,7 @@ function MainAppContent() {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-[#070e14] text-slate-100 selection:bg-[#0df2a4] selection:text-slate-950">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-[#0b0f19] text-slate-100 selection:bg-emerald-400 selection:text-slate-950">
 
       {/* 2. Top Navigation Bar */}
       {currentPage !== 'admin-dashboard' && (
@@ -246,14 +247,16 @@ function MainAppContent() {
 
 export default function App() {
   return (
-    <ToastProvider>
-      <AuthProvider>
-        <MerchantConfigProvider>
-          <NotificationProvider>
-            <MainAppContent />
-          </NotificationProvider>
-        </MerchantConfigProvider>
-      </AuthProvider>
-    </ToastProvider>
+    <ThemeProvider>
+      <ToastProvider>
+        <AuthProvider>
+          <MerchantConfigProvider>
+            <NotificationProvider>
+              <MainAppContent />
+            </NotificationProvider>
+          </MerchantConfigProvider>
+        </AuthProvider>
+      </ToastProvider>
+    </ThemeProvider>
   );
 }

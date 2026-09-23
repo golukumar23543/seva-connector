@@ -33,14 +33,14 @@ export function BrandLogo({ size = 'md', showSubtitle = true, className = '' }: 
 
   return (
     <div className={`flex items-center gap-3 group select-none ${className}`}>
-      {/* Dynamic Cyber Nexus Mark */}
+      {/* Dynamic Royal Sapphire Nexus Mark */}
       <div className="relative shrink-0">
         {/* Ambient Glow Aura */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-[#0df2a4]/40 via-cyan-500/30 to-[#0df2a4]/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300 opacity-80" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-indigo-500/30 to-amber-500/20 rounded-2xl blur-sm group-hover:blur-md transition-all duration-300 opacity-80" />
 
         {/* Outer Icon Container */}
         <div
-          className={`${iconSizes[size]} relative rounded-2xl bg-gradient-to-br from-[#0e2733] via-[#071722] to-[#040e16] p-[1.5px] border border-[#0df2a4]/40 shadow-[0_0_20px_rgba(13,242,164,0.35)] group-hover:scale-105 group-hover:border-[#0df2a4] transition-all duration-300 flex items-center justify-center`}
+          className={`${iconSizes[size]} relative rounded-2xl bg-gradient-to-br from-[#1e293b] via-[#0f172a] to-[#0b1329] p-[1.5px] border border-blue-500/40 shadow-[0_0_20px_rgba(37,99,235,0.35)] group-hover:scale-105 group-hover:border-blue-400 transition-all duration-300 flex items-center justify-center`}
         >
           {/* Custom Crafted Geometric Emblem: S & C Circuit Connector */}
           <svg
@@ -51,23 +51,23 @@ export function BrandLogo({ size = 'md', showSubtitle = true, className = '' }: 
           >
             <defs>
               <linearGradient id="scGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0df2a4" />
-                <stop offset="50%" stopColor="#38bdf8" />
-                <stop offset="100%" stopColor="#00f5c4" />
+                <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="50%" stopColor="#60a5fa" />
+                <stop offset="100%" stopColor="#f59e0b" />
               </linearGradient>
               <linearGradient id="scGlow" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0df2a4" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.2" />
+                <stop offset="0%" stopColor="#2563eb" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.3" />
               </linearGradient>
               <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#0df2a4" floodOpacity="0.8" />
+                <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#3b82f6" floodOpacity="0.8" />
               </filter>
             </defs>
 
             {/* Circuit Background Grid lines */}
             <path
               d="M10 24H16M32 24H38M24 10V16M24 32V38"
-              stroke="#0df2a4"
+              stroke="#3b82f6"
               strokeOpacity="0.25"
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -94,14 +94,14 @@ export function BrandLogo({ size = 'md', showSubtitle = true, className = '' }: 
             <circle cx="24" cy="24" r="2.5" fill="#ffffff" filter="url(#neonGlow)" />
 
             {/* Terminal Connection Node dots */}
-            <circle cx="31" cy="16" r="2" fill="#0df2a4" />
-            <circle cx="17" cy="33" r="2" fill="#38bdf8" />
+            <circle cx="31" cy="16" r="2" fill="#3b82f6" />
+            <circle cx="17" cy="33" r="2" fill="#f59e0b" />
           </svg>
 
           {/* Micro Status Beacon */}
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0df2a4] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#0df2a4] border-2 border-[#071117]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-400 border-2 border-[#0b1329]"></span>
           </span>
         </div>
       </div>
@@ -112,19 +112,19 @@ export function BrandLogo({ size = 'md', showSubtitle = true, className = '' }: 
           <span
             className={`font-display font-extrabold ${textSizes[size].title} tracking-tight text-white group-hover:text-slate-100 transition-colors flex items-center`}
           >
-            Seva<span className="text-[#0df2a4] ml-0.5">Connect</span>
+            Seva<span className="text-blue-400 ml-0.5">Connect</span>
           </span>
 
           <span
-            className={`${textSizes[size].badge} font-bold tracking-wider bg-[#0df2a4]/15 text-[#0df2a4] border border-[#0df2a4]/40 rounded-full uppercase shadow-[0_0_8px_rgba(13,242,164,0.25)] hidden 2xl:flex items-center gap-1 shrink-0`}
+            className={`${textSizes[size].badge} font-bold tracking-wider bg-blue-500/15 text-blue-400 border border-blue-500/40 rounded-full uppercase shadow-[0_0_8px_rgba(59,130,246,0.25)] hidden 2xl:flex items-center gap-1 shrink-0`}
           >
-            <span className="w-1 h-1 rounded-full bg-[#0df2a4] animate-pulse"></span>
+            <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse"></span>
             VERIFIED PRO
           </span>
         </div>
 
         {showSubtitle && (
-          <p className={`${textSizes[size].sub} text-teal-300/70 font-medium tracking-wide`}>
+          <p className={`${textSizes[size].sub} text-slate-400 font-medium tracking-wide`}>
             Doorstep Verified Services &amp; Technicians
           </p>
         )}

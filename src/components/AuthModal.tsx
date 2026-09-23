@@ -628,7 +628,7 @@ export function AuthModal({ isOpen, onClose, initialTab = 'login', onSuccess }: 
                   <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-950 flex items-start gap-2">
                     <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                     <span className="text-[11px] leading-snug">
-                      <strong>Exclusive Service in Patna District:</strong> Doorstep services and promotional offers are currently live for addresses across Patna (all city zones, blocks &amp; rural villages / हर गाँव).
+                      <strong>Exclusive Service in Patna District:</strong> Doorstep services and promotional offers are currently live for addresses across Patna (all city zones, blocks &amp; rural villages).
                     </span>
                   </div>
 
